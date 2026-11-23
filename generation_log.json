@@ -1,0 +1,138 @@
+{
+  "timestamp": "2026-11-23T14:38:08.165442+00:00",
+  "model": "groq:openai/gpt-oss-120b",
+  "lessons": [
+    {
+      "title": "EDA 是什麼？",
+      "answer": "**簡報：EDA 是什麼？**  \n（適合 IC 設計初學者）  \n\n---\n\n### 1. 基本概念  \n- **EDA（Electronic Design Automation）** 是用電腦軟體自動化完成 **RTL → GDSII** 整個數位 IC 設計流程的技術。  \n- 以 **OpenROAD** 為例，它提供了一套 **「Autonomous, No‑Human‑In‑Loop (NHIL)」** 的設計流，能在 **24 小時內完成從 RTL 到 GDSII** 的完整實作，讓設計者可以快速探索架構與版圖空間[W01]。  \n\n---\n\n### 2. 三個重要知識點  \n\n| # | 知識點 | 說明 |\n|---|--------|------|\n| 1 | **自動化設計流** | OpenROAD 透過 API（Tcl、Python）控制每個階段，實現從 **Floorplanning、Placement、Routing** 到最終 GDSII 的全自動化流程[W01]。 |\n| 2 | **降低成本與風險** | 透過開源、低成本的工具與快速的 24 h 交付，OpenROAD 減少硬體設計的成本、排程風險與不確定性，讓更多學術與新創團隊能參與 IC 設計[W01]。 |\n| 3 | **教育與人才培育** | OpenROAD 與全球大學、Google‑SkyWater、GlobalFoundries 合作，提供教材、課程與實作平台，支援超過 **600 個 silicon‑ready tapeout**，促進 IC 設計教育與工作力發展[W01]。 |\n\n---\n\n### 3. 簡單例子  \n\n**使用 OpenROAD‑flow‑scripts (ORFS) 完成一個簡單的數位電路**  \n\n1. **撰寫 RTL**（例如 Verilog 的 4‑bit 加法器）。  \n2. 以 ORFS 執行 **`run_openroad.tcl`**，自動進入  \n   - **Floorplanning**：設定晶片區域與利用率。  \n   - **Placement**、**Routing**：自動完成元件放置與連線。  \n3. 產出 **GDSII** 檔案，24 小時內即可取得可交付的版圖[W01]。  \n\n此流程不需要手動干預，適合作為新手的入門練習，也可在課堂上即時展示設計結果。\n\n---\n\n### 4. 小結  \n\n- **EDA** 讓複雜的 IC 設計變得可程式化、可自動化。  \n- **OpenROAD** 作為開源的 EDA 平台，示範了從概念到矽片的完整自動化路徑，降低門檻、加速學習。  \n- 透過實作 **RTL → GDSII** 的完整流程，初學者可以快速感受到 EDA 的威力與實用性。\n\n---  \n\n**來源**  \n[W01] OpenROAD – Introduction to EDA (OpenROAD documentation)",
+      "source_ids": [
+        "W01"
+      ],
+      "passed": true,
+      "history": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "checks": {
+            "has_content": true,
+            "has_valid_citations": true,
+            "has_no_missing_refs": true
+          },
+          "citations": [
+            "W01"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "RTL 與 Verilog",
+      "answer": "**RTL 與 Verilog – 初學者入門簡報**  \n\n---\n\n### 1. 基本概念  \n- **RTL (Register Transfer Level)**  \n  - 以「暫存器」之間的資料傳輸與運算為描述單位的抽象階層，屬於數位電路合成的中間表達方式。[W02]  \n  - 在 RTL 層級會看到 **Registers、Multiplexers、Finite state machines** 等基本元件的互連與行為。[W02]  \n\n- **Verilog**  \n  - 一種硬體描述語言（HDL），最常用來編寫 RTL 之描述，支援 **Verilog designs** 的語法與結構。[W02]  \n  - 透過 Verilog 可以定義 **module、wire、reg**，以及使用 **always / assign** 等敘述來描述暫存器傳輸與組合邏輯。[W02]  \n\n---\n\n### 2. 三個重要知識點  \n\n| # | 重點 | 說明 |\n|---|------|------|\n| 1 | **RTL 表示的層次與抽象** | 只關注暫存器間的資料流與同步/非同步控制，不涉及門級細節，方便設計與驗證。<br>（包括 **Registers、Multiplexers、Combinatorial cells** 等）[W02] |\n| 2 | **Verilog 與 RTL 的對應** | Verilog 程式碼在合成前會被解析為 RTLIL（RTL Intermediate Language），作為 Yosys 等合成工具的中間表示。[W02] |\n| 3 | **合成流程概念** | 1) 讀入 Verilog 檔 → 2) 產生 RTLIL (RTL) → 3) 進行 **Optimization、FSM handling、Memory handling** 等優化 → 4) 轉換成 **gate‑level** 級別的網表。[W02] |\n\n---\n\n### 3. 簡單範例 – 1 位元 D 型正緣觸發觸發器  \n\n```verilog\n// D Flip‑Flop (positive‑edge triggered)\nmodule dff (\n    input  wire clk,   // 時鐘\n    input  wire d,     // 資料輸入\n    output reg  q      // 資料輸出 (暫存器)\n);\n    // 在時鐘上升緣時，將 d 複製到 q\n    always @(posedge clk) begin\n        q <= d;\n    end\nendmodule\n```\n\n- **說明**  \n  - `module` 定義硬體單元；`input`、`output` 為介面。  \n  - `always @(posedge clk)` 表示「在時鐘正緣」觸發，此即 **Register Transfer** 的核心行為。  \n  - `q <= d;` 為非阻塞指派，描述資料從暫存器 **D** 轉移至 **Q**。  \n\n此程式碼在合成時會被 Yosys 轉換為 RTLIL，進一步映射為實際的 **flip‑flop cell**。[W02]\n\n---\n\n### 4. 小結  \n- RTL 為描述暫存器間資料傳輸的抽象層，適合作為合成的起點。  \n- Verilog 提供可讀寫的語法，使設計者能以文字方式描述 RTL。  \n- 從 Verilog → RTLIL → 優化 → Gate‑level 的合成流程，是現代數位 IC 設計的核心步驟。  \n\n> 以上內容均根據 Wiki「RTL Design」條目整理。[W02]",
+      "source_ids": [
+        "W02"
+      ],
+      "passed": true,
+      "history": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "checks": {
+            "has_content": true,
+            "has_valid_citations": true,
+            "has_no_missing_refs": true
+          },
+          "citations": [
+            "W02"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "邏輯合成 Logic Synthesis",
+      "answer": "**簡報主題：邏輯合成 (Logic Synthesis)**  \n\n---\n\n### 1. 基本概念  \n- **邏輯合成**是把設計語言（如 Verilog/VHDL）描述的功能，逐步轉換成可在晶片上實作的邏輯閘與儲存元件的過程。  \n- 合成大致分為兩個階段：  \n  1. **粗粒度合成 (coarse‑grain synthesis)** – 先在較高層次的抽象（如 process、FSM、memory）上進行優化與轉換。  \n  2. **細粒度合成 (fine‑grain synthesis)** – 再將粗粒度的元件映射成實際的基本閘、LUT、加法器等細部單元。  \n\n> 這兩個階段的切換與大多數 Yosys 指令的目標狀態相對應【[W03]】  \n\n---\n\n### 2. 三個重要知識點  \n\n| 知識點 | 說明 | 相關指令/功能 |\n|--------|------|---------------|\n| **粗粒度 vs 細粒度** | 粗粒度保留高層次資訊（process、FSM、memory），細粒度則以單位閘或 LUT 為單元。 | `proc`, `fsm`, `memory`（粗粒度）<br>`techmap`, `abc/abc9`, `simplemap`（細粒度）【[W03]】 |\n| **映射到硬體元件** | 設計先被映射至硬塊 (hard blocks) 再映射到細粒度的邏輯單元，完成「logic gate mapping」的最後步驟。 | `techmap` 轉換粗粒度元件 → 細粒度元件；`abc`/`abc9` 進行 LUT/閘的最佳化【[W03]】 |\n| **最佳化 Pass** | 合成過程中會執行多種最佳化，以減少面積、功耗或提升速度。常見的宏指令 `opt` 包含：<br>• `opt_expr` – 常數折疊與簡單表達式重寫<br>• `opt_merge` – 合併相同的單元<br>• `opt_muxtree` – 移除永不活躍的分支<br>• `opt_reduce` – 簡化大型 MUX/AND/OR 結構【[W03]】 |\n\n---\n\n### 3. 簡單例子：4 位元計數器  \n\n1. **載入設計**  \n   ```verilog\n   module counter (input clk, reset, output [3:0] cnt);\n       always @(posedge clk or posedge reset)\n           if (reset) cnt <= 4'd0;\n           else       cnt <= cnt + 1'b1;\n   endmodule\n   ```\n2. **粗粒度合成** – 解析 `always` 區塊、產生「process」與暫存元件。  \n3. **最佳化** – 透過 `opt` 系列 Pass，折疊常數、合併相同的加法器等。  \n4. **映射** – `techmap` 把高層的加法器轉成 LUT 或基本閘，最後產生成 `FF` + `AND/OR` 組合的門級網表。  \n\n> 此流程在 Yosys 中會依序經歷「Coarse‑grain representation → Logic gate mapping → Mapping to hardware」的步驟【[W03]】  \n\n---\n\n### 4. 小結  \n\n- **邏輯合成**是從行為描述到門級實作的必經橋樑。  \n- 掌握 **粗/細粒度** 的概念、**映射流程** 以及 **最佳化 Pass**，是 IC 設計新手的核心基礎。  \n- 透過簡單的 **計數器例子**，可以觀察到每一步驟在實際工具（如 Yosys）中的具體運作方式。  \n\n---\n\n**參考來源**  \n- Yosys 官方文件 – Logic Synthesis 相關說明【[W03]】",
+      "source_ids": [
+        "W03"
+      ],
+      "passed": true,
+      "history": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "checks": {
+            "has_content": true,
+            "has_valid_citations": true,
+            "has_no_missing_refs": true
+          },
+          "citations": [
+            "W03"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "元件布局 Placement",
+      "answer": "**元件布局 (Placement) – 基本概念與重要知識**  \n（適合 IC 設計初學者）  \n\n---\n\n### 1. 基本概念  \n- **元件布局**是將所有標準單元、宏元件、固定單元（如 tapcell、endcap）安排到晶片的實體版圖上，使它們佔據合法的「site」位置。  \n- 合法布局必須滿足 **設計規則 (DRC)**、不重疊、符合行(row)寬度等限制，才能進入後續的配線階段。  \n- 常見流程：  \n  1. **全局布局 (global placement)** → 初步決定每個元件的大致位置。  \n  2. **檢查合法性** (`check_placement`)。  \n  3. **細部布局 (detailed placement)** → 把元件移到最終合法位置，並可進一步優化如鏡像或填充空白。  \n\n> 來源: `check_placement` 會檢查布局合法性，`detailed_placement` 執行細部布局 [W04]。  \n\n---\n\n### 2. 三個重要知識點  \n\n| # | 知識點 | 內容說明 | 相關指令 |\n|---|--------|----------|----------|\n| 1 | **布局合法性檢查** | 必須確認固定實例、宏元件與可移動單元皆符合版圖規則。可分別檢查「fixed」與「placeable」兩類元件。 | `check_placement [-fixed] [-placeable]` [W04] |\n| 2 | **填充 (Filler) 與填充前置** | 為避免行間空洞，使用 filler cell 填滿未被佔用的 site；可自訂前綴名稱 (預設 `FILLER_`) 並在合法化前設定填充寬度。 | `filler_placement -prefix <new prefix>`、`set_placement_padding` [W04] |\n| 3 | **細部布局與優化** | 在全局布局後，`detailed_placement` 把元件移到合法 site；`optimize_mirroring` 會嘗試在 Y 軸鏡像元件，以降低半周長線長 (HPWL)。 | `detailed_placement`、`optimize_mirroring` [W04] |\n\n---\n\n### 3. 簡單例子  \n\n假設已完成全局布局，接下來的指令流程如下（均以 OpenROAD/類似工具為例）：\n\n```text\n# 1. 檢查固定與宏元件是否合法\ncheck_placement -fixed -verbose\n\n# 2. 設定填充前置，給每個實例左/右各 2 個 site 的緩衝空間\nset_placement_padding -global 2\n\n# 3. 執行細部布局，使所有可移動單元落在合法位置\ndetailed_placement -max_displacement 10\n\n# 4. 嘗試鏡像優化，減少 HPWL\noptimize_mirroring\n```\n\n執行完上述指令後，工具會回報布局是否合法（`check_placement` 回傳 0 代表合法），並在細部布局階段自動插入 filler cell 以及調整元件位置以符合製程需求。  \n\n> 以上指令與說明均取自官方 Placement 手冊的指令說明 [W04]。  \n\n---\n\n**小結**  \n- 布局是 IC 設計的關鍵前置，必須先確保合法性，再透過填充與細部優化提升後續配線的可行性與效能。  \n- 熟悉 `check_placement`、`filler_placement`、`detailed_placement` 等基本指令，是進入實務設計的第一步。",
+      "source_ids": [
+        "W04"
+      ],
+      "passed": true,
+      "history": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "checks": {
+            "has_content": true,
+            "has_valid_citations": true,
+            "has_no_missing_refs": true
+          },
+          "citations": [
+            "W04"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "電路繞線 Routing",
+      "answer": "**電路繞線 (Routing) — 基本概念與關鍵知識**  \n*適用於 IC 設計初學者*  \n\n---\n\n### 1. 基本概念  \n- **什麼是 Routing**  \n  - 在 IC 設計中，Routing（繞線）是把電路圖上各 **net**（連線）以金屬線的形式連接起來，使所有元件能正確通訊。  \n  - 繞線分為兩個階段：  \n    1. **Global Routing**：先在粗粒度的格子 (gcell) 上決定每條 net 大致的走向與層級。  \n    2. **Detailed Routing**：在 Global Routing 的基礎上，進一步在每一層的實際佈線格點上完成精確布線。  \n  - 這些階段皆可透過指令列工具讀寫 **routing guides**、**routing segments**，並產生佈線長度報告等資訊【[W05]】。\n\n---\n\n### 2. 三個重要知識點  \n\n| # | 知識點 | 內容說明 |\n|---|--------|----------|\n| 1️⃣ | **Net 名稱與選取** | `-net` 參數用於指定要報告或操作的 net（如 `clk`、`net60`），或使用 `*` 代表全部 net【[W05]】。 |\n| 2️⃣ | **全局與詳細佈線的報告** | - `-global_route` 旗標報告 **全局佈線** 的線長。<br>- `-detailed_route` 旗標報告 **詳細佈線** 的線長。兩者可同時使用，並可加上 `-verbose` 取得層別細節【[W05]】。 |\n| 3️⃣ | **佈線指令與檔案交互** | - `read_guides <file>`：讀取全局佈線指引。<br>- `write_global_route_segments <file>`：寫出全局佈線產生的原始段資料，供後續抽取寄生參數或修正天線使用。<br>- `read_global_route_segments <file>`：讀取上述段資料以重新分析【[W05]】。 |\n\n---\n\n### 3. 簡單例子  \n\n假設我們想要查詢時鐘網路 `clk` 以及 `net60` 的佈線長度，並同時取得全局與詳細佈線的層別資訊，指令如下：\n\n```\nreport_wire_length \\\n  -net {clk net60} \\\n  -global_route \\\n  -detailed_route \\\n  -verbose \\\n  -file out.csv\n```\n\n- `-net {clk net60}`：指定要報告的兩條 net。  \n- `-global_route`、`-detailed_route`：同時顯示全局與詳細佈線長度。  \n- `-verbose`：列出每層的線長細節。  \n- `-file out.csv`：將結果寫入 CSV 檔方便後續分析【[W05]】。\n\n---\n\n### 4. 小結  \n\n- **Routing** 是把電路圖形化為金屬線的關鍵步驟，分為 **全局** 與 **詳細** 兩層次。  \n- 了解 **net**、**全局/詳細佈線報告** 以及 **指令檔案交互**，能讓設計者更有效率地檢視與調整佈線品質。  \n- 透過簡單的指令範例，可快速取得關鍵佈線資訊，為後續的時序、功耗與製程檢查奠定基礎。",
+      "source_ids": [
+        "W05"
+      ],
+      "passed": true,
+      "history": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "checks": {
+            "has_content": true,
+            "has_valid_citations": true,
+            "has_no_missing_refs": true
+          },
+          "citations": [
+            "W05"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "IC 設計驗證 Verification",
+      "answer": "**簡報標題：IC 設計驗證 (Verification) 入門概念**  \n\n---\n\n### 1. 什麼是 IC 設計驗證？\n\n- **驗證 (Verification)**：在晶片設計流程中，使用模擬、形式驗證、版圖檢查等手段，確認「設計功能」與「規格需求」相符，避免在製程後出現錯誤。  \n- 在數位 ASIC 設計裡，驗證通常是 **完整 flow** 的最後階段，與合成、布局、繞線等步驟緊密相連。  \n- **OpenLane 2** 提供一套以開源 EDA 工具構成的參考 flow，將驗證步驟自動化，讓使用者可在同一環境中完成從 RTL 到驗證的全流程。  \n  - 參考來源：[W06]\n\n---\n\n### 2. 三個重要知識點\n\n| # | 知識點 | 為什麼重要？ | 相關說明（引用） |\n|---|--------|--------------|-------------------|\n| 1 | **完整的參考驗證 Flow** | 提供從 RTL 合成到版圖驗證（DRC/LVS）的端對端自動化，降低手動錯誤。 | OpenLane 2 包含「Classic BETA」參考 flow，全部使用開源工具，讓驗證行為可透過單一配置檔控制。 [W06] |\n| 2 | **彈性與可擴充性** | 設計者可依需求自訂驗證腳本或加入額外檢查，適應不同 ASIC 專案。 | 可透過 Python 腳本或修改配置檔自由擴展或調整 flow。 [W06] |\n| 3 | **開源與社群支援** | 免費取得、可自行修改，且有活躍社群提供範例、問題解答，降低學習門檻。 | OpenLane 2 為開源專案，擁有豐富的社群資源協助使用者上手與除錯。 [W06] |\n\n---\n\n### 3. 簡單例子：用 OpenLane 2 驗證一個 2‑Input NAND 閘\n\n1. **撰寫 RTL**（Verilog）  \n   ```verilog\n   module nand2 (input a, input b, output y);\n       assign y = ~(a & b);\n   endmodule\n   ```\n2. **放入 OpenLane 2 專案資料夾**，執行預設的 `./flow.sh`（呼叫 Classic BETA flow）。  \n3. Flow 依序執行：  \n   - **合成 (Synthesis)** → 產生門級網表  \n   - **布局 & 繞線 (Placement & Routing)** → 生成版圖 GDS  \n   - **驗證**：自動執行 **DRC**（設計規則檢查）與 **LVS**（版圖與電路等價性檢查），確保版圖與原始功能一致。  \n4. **結果**：若 DRC/LVS 通過，即表示該 NAND 閘的功能與版圖皆符合規格，驗證成功。  \n\n> 這個例子展示了 **OpenLane 2** 如何把驗證步驟嵌入完整 flow，讓初學者只需要一次指令即可完成功能與版圖的雙重驗證。 [W06]\n\n---\n\n### 4. 小結\n\n- **IC 設計驗證** 是確保晶片功能正確、製造成功的關鍵階段。  \n- 使用 **OpenLane 2**，初學者可以透過開源、彈性、高社群支援的環境，快速體驗從 RTL 到驗證的完整流程。  \n\n---  \n\n**參考來源**  \n- OpenLane 2 Documentation – IC Design Verification. [W06]",
+      "source_ids": [
+        "W06"
+      ],
+      "passed": true,
+      "history": [
+        {
+          "attempt": 1,
+          "passed": true,
+          "checks": {
+            "has_content": true,
+            "has_valid_citations": true,
+            "has_no_missing_refs": true
+          },
+          "citations": [
+            "W06"
+          ]
+        }
+      ]
+    }
+  ]
+}
