@@ -31,6 +31,3 @@ LLM 產生教材
 問題主要集中在檢索節點：中文提問對英文官方技術文件的匹配不穩。將檢查往前移至 LLM 生成之前，增加英文關鍵字擴充與文件主題加權，改善了預期來源排序。
 
 V3 的來源匹配改善不等同於事實驗證。生成檢查的重試數與成果，需以 Colab 真正產生的 generation_log.json 為準，不能憑空填入。
-
-## 待補證據
-完整 W01–W06 markdown、sources.json、ingest_log.json、retrieval_log.json、generation_log.json、index.html，以及人工檢查結果。
