@@ -1,0 +1,576 @@
+[
+  {
+    "id": "W01",
+    "topic": "EDA Introduction",
+    "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+    "chunk_id": 1,
+    "text": "# EDA Introduction\n\n來源：https://openroad.readthedocs.io/en/latest/main/README2.html\n\n.md\n.pdf\nOpenROAD\nContents\nOpenROAD\n#\nAbout OpenROAD\n#\nOpenROAD is the leading open-source, foundational application for\nsemiconductor digital design. The OpenROAD flow delivers an\nAutonomous, No-Human-In-Loop (NHIL) flow, 24 hour turnaround from\nRTL-GDSII for rapid design exploration and physical design implementation.\nOpenROAD Mission\n#\nOpenROAD\neliminates the barriers\nof cost, schedule risk and uncertainty in hardware design to promote\nopen access to rapid, low-cost IC design software and expertise and\nsystem innovation. The OpenROAD application enables flexible flow\ncontrol through an API with bindings in"
+  },
+  {
+    "id": "W01",
+    "topic": "EDA Introduction",
+    "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+    "chunk_id": 2,
+    "text": "m innovation. The OpenROAD application enables flexible flow\ncontrol through an API with bindings in Tcl and Python.\nOpenROAD is used in research and commercial applications such as,\nOpenROAD-flow-scripts\nfrom\nOpenROAD\nOpenLane\nfrom\nEfabless\nSilicon Compiler\nfrom\nZero ASIC\nHammer\nfrom\nUC Berkeley\nOpenFASoC\nfrom\nIDEA-FASoC\nfor mixed-signal design flows\nOpenROAD fosters a vibrant ecosystem of users through active\ncollaboration and partnership through software development and key\nalliances. Our growing user community includes hardware designers,\nsoftware engineers, industry collaborators, VLSI enthusiasts,\nstudents and researchers.\nOpenROAD strongly advocates and enables IC design-based educati"
+  },
+  {
+    "id": "W01",
+    "topic": "EDA Introduction",
+    "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+    "chunk_id": 3,
+    "text": "thusiasts,\nstudents and researchers.\nOpenROAD strongly advocates and enables IC design-based education\nand workforce development initiatives through training content and\ncourses across several global universities, the Google-SkyWater\nshuttles\nalso\nincludes GlobalFoundries shuttles, design contests and IC design\nworkshops. The OpenROAD flow has been successfully used to date\nin over 600 silicon-ready tapeouts for technologies up to 12nm.\nGetting Started with OpenROAD-flow-scripts\n#\nOpenROAD provides\nOpenROAD-flow-scripts\nas a native, ready-to-use prototyping and tapeout flow. However,\nit also enables the creation of any custom flow controllers based\non the underlying tools, database and analy"
+  },
+  {
+    "id": "W01",
+    "topic": "EDA Introduction",
+    "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+    "chunk_id": 4,
+    "text": "nables the creation of any custom flow controllers based\non the underlying tools, database and analysis engines. Please refer to the flow documentation\nhere\n.\nOpenROAD-flow-scripts (ORFS) is a fully autonomous, RTL-GDSII flow\nfor rapid architecture and design space exploration, early prediction\nof QoR and detailed physical design implementation. However, ORFS\nalso enables manual intervention for finer user control of individual\nflow stages through Tcl commands and Python APIs.\nFigure below shows the main stages of the OpenROAD-flow-scripts:\nHere are the main steps for a physical design implementation\nusing OpenROAD;\nFloorplanning\nFloorplan initialization - define the chip area, utilization\nI"
+  },
+  {
+    "id": "W01",
+    "topic": "EDA Introduction",
+    "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+    "chunk_id": 5,
+    "text": "ntation\nusing OpenROAD;\nFloorplanning\nFloorplan initialization - define the chip area, utilization\nIO pin placement (for designs without pads)\nTap cell and well tie insertion\nPDN- power distribution network creation\nGlobal\nPlacement\nMacro placement (RAMs, embedded macros)\nStandard cell placement\nAutomatic placement optimization and repair for max slew,\nmax capacitance, and max fanout violations and long wires\nDetailed\nPlacement\nLegalize placement - align to grid, adhere to design rules\nIncremental timing analysis for early estimates\nClock\nTree\nSynthesis\nInsert buffers and resize for high fanout nets\nOptimize\nsetup/hold\ntiming\nGlobal\nRouting\nAntenna repair\nCreate routing guides\nDetailed\nRouti"
+  },
+  {
+    "id": "W01",
+    "topic": "EDA Introduction",
+    "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+    "chunk_id": 6,
+    "text": "t nets\nOptimize\nsetup/hold\ntiming\nGlobal\nRouting\nAntenna repair\nCreate routing guides\nDetailed\nRouting\nLegalize routes, DRC-correct routing to meet timing, power\nconstraints\nChip\nFinishing\nParasitic extraction using OpenRCX\nFinal timing verification\nFinal physical verification\nDummy metal fill for manufacturability\nUse KLayout or Magic using generated GDS for DRC signoff\nGUI\n#\nThe OpenROAD GUI is a powerful visualization, analysis, and debugging\ntool with a customizable Tcl interface. The below figures show GUI views for\nvarious flow stages including floorplanning, placement congestion,\nCTS and post-routed design.\nFloorplan\n#\nAutomatic Hierarchical Macro Placement\n#\nPlacement Congestion Visu"
+  },
+  {
+    "id": "W01",
+    "topic": "EDA Introduction",
+    "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+    "chunk_id": 7,
+    "text": "d post-routed design.\nFloorplan\n#\nAutomatic Hierarchical Macro Placement\n#\nPlacement Congestion Visualization\n#\nCTS\n#\nRouting\n#\nPDK Support\n#\nThe OpenROAD application is PDK independent. However, it has been tested\nand validated with specific PDKs in the context of various flow\ncontrollers.\nOpenLane supports SkyWater 130nm and GlobalFoundries 180nm.\nOpenROAD-flow-scripts supports several public and private PDKs\nincluding:\nOpen-Source PDKs\n#\nGF180\n- 180nm\nSKY130\n- 130nm\nNangate45\n- 45nm\nASAP7\n- Predictive FinFET 7nm\nProprietary PDKs\n#\nThese PDKS are supported in OpenROAD-flow-scripts only. They are used to\ntest and calibrate OpenROAD against commercial platforms and ensure good\nQoR. The PDKs "
+  },
+  {
+    "id": "W01",
+    "topic": "EDA Introduction",
+    "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+    "chunk_id": 8,
+    "text": " are used to\ntest and calibrate OpenROAD against commercial platforms and ensure good\nQoR. The PDKs and platform-specific files for these kits cannot be\nprovided due to NDA restrictions. However, if you are able to access\nthese platforms independently, you can create the necessary\nplatform-specific files yourself.\nGF55\n- 55nm\nGF12\n- 12nm\nIntel22\n- 22nm\nIntel16\n- 16nm\nTSMC65\n- 65nm\nTapeouts\n#\nOpenROAD has been used for full physical implementation in over\n600 tapeouts in SKY130 and GF180 through the Google-sponsored,\nEfabless\nMPW shuttle\nand\nChipIgnite\nprograms.\nOpenTitan SoC on GF12LP - Physical design and optimization using OpenROAD\n#\nContinuous Tapeout Integration into CI\n#\nThe OpenROAD pr"
+  },
+  {
+    "id": "W01",
+    "topic": "EDA Introduction",
+    "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+    "chunk_id": 9,
+    "text": "al design and optimization using OpenROAD\n#\nContinuous Tapeout Integration into CI\n#\nThe OpenROAD project actively adds successfully taped out MPW shuttle\ndesigns to the\nCI regression\ntesting\n.\nExamples of designs include Open processor cores, RISC-V based SoCs,\ncryptocurrency miners, robotic app processors, amateur satellite radio\ntransceivers, OpenPower-based Microwatt etc.\nBuild OpenROAD\n#\nBazel is the supported build system.\nInstall the dependencies, then build and install OpenROAD:\nsudo\n./etc/DependencyInstaller.sh\n-bazel\nbazelisk\nrun\n--//:platform\n=\ngui\n//:install\nSee\nInstalling OpenROAD\nfor the CLI-only build.\nTo skip the build, use one of these options:\nPrebuilt binaries\n,\nfrom\nOpenR"
+  },
+  {
+    "id": "W01",
+    "topic": "EDA Introduction",
+    "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+    "chunk_id": 10,
+    "text": "\nfor the CLI-only build.\nTo skip the build, use one of these options:\nPrebuilt binaries\n,\nfrom\nOpenROAD VaultLink\n.\nDocker\n.\nSee\nBuilding and testing with Bazel\nfor tests and build configurations.\nBazel is the only supported build system.\nThird-party dependencies\n#\nBazel sources third-party code in this order of preference:\nA module from the\nBazel Central Registry\n(\nbazel_dep\nin\nMODULE.bazel\n). This is the default — pinned,\nmirrored, reproducible, and no submodule needed.\nIf the dependency is not on BCR, fetch the upstream repository\ndirectly with\nhttp_archive\n(preferred) or a module extension.\nFor modules that exist on BCR but need a different revision,\ngit_override\n(pinned by commit) or\nar"
+  },
+  {
+    "id": "W01",
+    "topic": "EDA Introduction",
+    "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+    "chunk_id": 11,
+    "text": ".\nFor modules that exist on BCR but need a different revision,\ngit_override\n(pinned by commit) or\narchive_override\n(pinned\nby URL + SHA256) can be used. Bring a BUILD overlay only when\nupstream does not ship one.\nA real fork (with OpenROAD-specific patches) stays as a git\nsubmodule; Bazel then references it via its local path.\nThe rule of thumb: if Bazel can get it from BCR or directly from the\nupstream repo, do not add a submodule for it.\nThere is a third source, for browser code only: the web viewer’s\nJavaScript libraries come from\nnpm\n, pinned in\nopenroad/web/package.json\nand\nopenroad/web/pnpm-lock.yaml\n, and are bundled by esbuild into the assets\nembedded in the binary (see\nopenroad/web/"
+  },
+  {
+    "id": "W01",
+    "topic": "EDA Introduction",
+    "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+    "chunk_id": 12,
+    "text": "npm-lock.yaml\n, and are bundled by esbuild into the assets\nembedded in the binary (see\nopenroad/web/README.md\n). Do not add a submodule\nor a BCR module for one of these, and do not add an npm dependency for\nanything that is not browser code.\nRegression Tests\n#\nThe regression tests are registered in the\nBUILD\nfiles.\nThe test files are in\n./test/\nand in\nopenroad/<tool>/test/\n.\nRun them with Bazel:\n# run tests for all tools\nbazelisk\ntest\n//openroad/...\n# run <tool> tests\nbazelisk\ntest\n//openroad/<tool>/...\n# run only <TEST_NAME> for <tool>\nbazelisk\ntest\n//openroad/<tool>/test:<TEST_NAME>-tcl_test\n# run all flow tests\nbazelisk\ntest\n//test:flow_tests\nTcl tests end in\n-tcl_test\nand Python tests en"
+  },
+  {
+    "id": "W01",
+    "topic": "EDA Introduction",
+    "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+    "chunk_id": 13,
+    "text": "\n# run all flow tests\nbazelisk\ntest\n//test:flow_tests\nTcl tests end in\n-tcl_test\nand Python tests end in\n-py_test\n.\nUse\nbazelisk\nquery\n'kind(test,\n//openroad/<tool>/...)'\nto list the test\ntargets of a tool.\nThe flow tests check results such as worst slack against reference values.\nRunning the tests in\n./test/\noutside Bazel\n#\n./test/regression\nis a Tcl driver for the tests in\n./test/\n.\nSet\nOPENROAD_EXE\nto the binary to test:\nbazelisk\nbuild\n//:openroad\n# run all flow tests\nOPENROAD_EXE\n=\n$PWD\n/bazel-bin/openroad/openroad\n./test/regression\nflow\n# run only <TEST_NAME>\nOPENROAD_EXE\n=\n$PWD\n/bazel-bin/openroad/openroad\n./test/regression\n<TEST_NAME>\nUse\nreport_flow_metrics\n[test]...\nto see all of th"
+  },
+  {
+    "id": "W01",
+    "topic": "EDA Introduction",
+    "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+    "chunk_id": 14,
+    "text": "n/openroad/openroad\n./test/regression\n<TEST_NAME>\nUse\nreport_flow_metrics\n[test]...\nto see all of the flow test metrics.\n% report_flow_metrics gcd_nangate45\n                       insts    area util slack_min slack_max  tns_max clk_skew max_slew max_cap max_fanout DPL ANT drv\ngcd_nangate45            368     564  8.8     0.112    -0.015     -0.1    0.004        0       0          0   0   0   0\nTo update a failing regression, follow the instructions below:\n# update log files (i.e. *ok)\nsave_ok <TEST_NAME>\n\n# update \"*.metrics\" for tests that use flow test\nsave_flow_metrics <TEST_NAME> \n\n# update \"*.metrics_limits\" files\nsave_flow_metrics_limits <TEST_NAME>\nRun\n#\nopenroad [-help] [-version] [-"
+  },
+  {
+    "id": "W01",
+    "topic": "EDA Introduction",
+    "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+    "chunk_id": 15,
+    "text": "e \"*.metrics_limits\" files\nsave_flow_metrics_limits <TEST_NAME>\nRun\n#\nopenroad [-help] [-version] [-no_init] [-exit] [-gui]\n         [-threads count|max] [-log file_name] [-db file_name] cmd_file\n  -help              show help and exit\n  -version           show version and exit\n  -no_init           do not read .openroad init file\n  -threads count|max use count threads (default max)\n  -no_splash         do not show the license splash at startup\n  -exit              exit after reading cmd_file\n  -gui               start in gui mode\n  -log <file_name>   write a log in <file_name>\n  -db <file_name>    open a .odb database at startup\n  cmd_file           source cmd_file\nOpenROAD sources the Tcl c"
+  },
+  {
+    "id": "W01",
+    "topic": "EDA Introduction",
+    "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+    "chunk_id": 16,
+    "text": ">    open a .odb database at startup\n  cmd_file           source cmd_file\nOpenROAD sources the Tcl command file\n~/.openroad\nunless the command\nline option\n-no_init\nis specified.\nOpenROAD then sources the command file\ncmd_file\nif it is specified on\nthe command line. Unless the\n-exit\ncommand line flag is specified, it\nenters an interactive Tcl command interpreter.\nA list of the available tools/modules included in the OpenROAD app\nand their descriptions are available\nhere\n.\nGit Quickstart\n#\nOpenROAD uses Git for version control and contributions.\nGet familiarised with a quickstart tutorial to contribution\nhere\n.\nUnderstanding Warning and Error Messages\n#\nSeeing OpenROAD warnings or errors you d"
+  },
+  {
+    "id": "W01",
+    "topic": "EDA Introduction",
+    "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+    "chunk_id": 17,
+    "text": "tribution\nhere\n.\nUnderstanding Warning and Error Messages\n#\nSeeing OpenROAD warnings or errors you do not understand? We have compiled a table of all messages\nand you may potentially find your answer\nhere\n.\nLicense\n#\nBSD 3-Clause License. See\nLICENSE\nfile.\nContents"
+  },
+  {
+    "id": "W02",
+    "topic": "RTL Design",
+    "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/",
+    "chunk_id": 1,
+    "text": "# RTL Design\n\n來源：https://yosyshq.readthedocs.io/projects/yosys/en/stable/\n\nYosys Open SYnthesis Suite\n¶\nYosys is an open source framework for RTL synthesis.  To learn more about Yosys,\nsee\nWhat is Yosys\n.  For a quick guide on how to get started using Yosys,\ncheck out\nGetting started with Yosys\n.  For the complete list of commands\navailable, go to\nCommand reference\n.\nYosys (index)\nWhat is Yosys\nWhat you can do with Yosys\nTypical applications for Yosys\nThings you can’t do\nThe Yosys family\nThe original thesis abstract\nBenefits of open source HDL synthesis\nHistory of Yosys\nGetting started with Yosys\nInstallation\nCAD suite(s)\nBuilding from source\nSource tree and build system\nSynthesis starter\nDe"
+  },
+  {
+    "id": "W02",
+    "topic": "RTL Design",
+    "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/",
+    "chunk_id": 2,
+    "text": "sys\nInstallation\nCAD suite(s)\nBuilding from source\nSource tree and build system\nSynthesis starter\nDemo design\nLoading the design\nElaboration\nFlattening\nThe coarse-grain representation\nHardware mapping\nFinal steps\nScripting in Yosys\nScript parsing\nThe synthesis starter script\nUsing Yosys (advanced)\nSynthesis in detail\nSynth commands\nConverting process blocks\nFSM handling\nMemory handling\nOptimization passes\nTechnology mapping\nThe extract pass\nThe ABC toolbox\nMapping to cell libraries\nMore scripting\nLoading a design\nSelections\nInteractive design investigation\nSymbolic model checking\nDataflow tracking\nMinimizing failing (or bugged) designs\nBefore you start\nMinimizing RTLIL designs with bugpoint\n"
+  },
+  {
+    "id": "W02",
+    "topic": "RTL Design",
+    "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/",
+    "chunk_id": 3,
+    "text": "king\nMinimizing failing (or bugged) designs\nBefore you start\nMinimizing RTLIL designs with bugpoint\nMinimizing Verilog designs\nIdentifying issues\nNotes on Verilog support in Yosys\nUnsupported Verilog-2005 Features\nVerilog Attributes and non-standard features\nNon-standard or SystemVerilog features for formal verification\nSupported features from SystemVerilog\nScripting with Pyosys\nGetting Pyosys\nScripting and Database Inspection\nModifying the Database\nEncapsulating as Passes\nYosys internals\nInternal flow\nFlow overview\nControl and data flow\nThe Verilog and AST frontends\nInternal formats\nThe RTL Intermediate Language (RTLIL)\nWorking with the Yosys codebase\nWriting extensions\nCompiling with Verif"
+  },
+  {
+    "id": "W02",
+    "topic": "RTL Design",
+    "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/",
+    "chunk_id": 4,
+    "text": "ntermediate Language (RTLIL)\nWorking with the Yosys codebase\nWriting extensions\nCompiling with Verific library\nWriting a new backend using FunctionalIR\nIdentifying the root cause of bugs\nContributing to Yosys\nTesting Yosys\nTechmap by example\nMapping OR3X1\nConditional techmap\nScripting in map modules\nHandling constant inputs\nHandling shorted inputs\nNotes on using techmap\nHashing and associative data structures in Yosys\nContainer classes based on hashing\nThe hash function\nMaking a type hashable\nPorting plugins from the legacy interface\nIdString\nDesign\nMigration from globally interned IdStrings\nAppendix\nA primer on digital circuit synthesis\nRTLIL text representation\nAuxiliary libraries\nAuxiliar"
+  },
+  {
+    "id": "W02",
+    "topic": "RTL Design",
+    "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/",
+    "chunk_id": 5,
+    "text": "ppendix\nA primer on digital circuit synthesis\nRTLIL text representation\nAuxiliary libraries\nAuxiliary programs\nLiterature references\nInternal cell library\nWord-level cells\nUnary operators\nBinary operators\nMultiplexers\nRegisters\nMemories\nFinite state machines\nCoarse arithmetics\nArbitrary logic functions\nSpecify rules\nFormal verification cells\nDebugging cells\nWire cells\nGate-level cells\nCombinatorial cells (simple)\nCombinatorial cells (combined)\nFlip-flop cells\nLatch cells\nOther gate-level cells\nCell properties\nCommand line reference\nYosys environment variables\nReading input files\nWriting output files\nYosys kernel commands\nFormal verification\nPasses\nWorking with hierarchy\nConverting process bl"
+  },
+  {
+    "id": "W02",
+    "topic": "RTL Design",
+    "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/",
+    "chunk_id": 6,
+    "text": " files\nYosys kernel commands\nFormal verification\nPasses\nWorking with hierarchy\nConverting process blocks\nFSM handling\nMemory handling\nOptimization passes\nTechnology mapping\nDesign modification\nEquivalence checking\nSimulating circuits\nDesign status\nTechnology libraries\nGeneric\nAchronix\nAnlogic\neASIC\nFABulous\nGatemate\nGowin\niCE40\nIntel (MAX10, Cyclone IV)\nIntel ALM (Cyclone V, Arria V, Cyclone 10 GX)\nLattice\nMicrochip\nMicrochip - SmartFusion2/IGLOO2\nNanoXplore\nQuickLogic\nXilinx\nInternal commands for developers\nWriting command help"
+  },
+  {
+    "id": "W03",
+    "topic": "Logic Synthesis",
+    "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/using_yosys/synthesis/index.html",
+    "chunk_id": 1,
+    "text": "# Logic Synthesis\n\n來源：https://yosyshq.readthedocs.io/projects/yosys/en/stable/using_yosys/synthesis/index.html\n\nSynthesis in detail\n¶\nSynthesis can generally be broken down into coarse-grain synthesis, and\nfine-grain synthesis.  We saw this in\nSynthesis starter\nwhere a design was loaded and elaborated and then went through a series of\ncoarse-grain optimizations before being mapped to hard blocks and fine-grain\ncells.  Most commands in Yosys will target either coarse-grain representation or\nfine-grain representation, with only a select few compatible with both states.\nCommands such as\nproc\n,\nfsm\n, and\nmemory\nrely on the additional information\nin the coarse-grain representation, along with a n"
+  },
+  {
+    "id": "W03",
+    "topic": "Logic Synthesis",
+    "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/using_yosys/synthesis/index.html",
+    "chunk_id": 2,
+    "text": "m\n, and\nmemory\nrely on the additional information\nin the coarse-grain representation, along with a number of optimizations such as\nwreduce\n,\nshare\n, and\nalumacc\n.\nopt\nprovides optimizations which are\nuseful in both states, while\ntechmap\nis used to convert coarse-grain cells to\nthe corresponding fine-grain representation.\nSingle-bit cells (logic gates, FFs) as well as LUTs, half-adders, and\nfull-adders make up the bulk of the fine-grain representation and are necessary\nfor commands such as\nabc\n/\nabc9\n,\nsimplemap\n,\ndfflegalize\n, and\nmemory_map\n.\nSynth commands\nPackaged\nsynth_*\ncommands\nGeneral synthesis\nConverting process blocks\nExample\nFSM handling\nFSM detection\nFSM extraction\nFSM optimizatio"
+  },
+  {
+    "id": "W03",
+    "topic": "Logic Synthesis",
+    "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/using_yosys/synthesis/index.html",
+    "chunk_id": 3,
+    "text": "ynthesis\nConverting process blocks\nExample\nFSM handling\nFSM detection\nFSM extraction\nFSM optimization\nFSM recoding\nMemory handling\nThe\nmemory\ncommand\nExample\nMemory mapping\nSupported memory patterns\nNotes\nSimple dual port (SDP) memory patterns\nSingle-port RAM memory patterns\nRead register reset patterns\nAsymmetric memory patterns\nTrue dual port (TDP) patterns\nPatterns only supported with Verific\nUndesired patterns\nOptimization passes\nThe\nopt\nmacro command\nConstant folding and simple expression rewriting -\nopt_expr\nMerging identical cells -\nopt_merge\nRemoving never-active branches from multiplexer tree -\nopt_muxtree\nSimplifying large MUXes and AND/OR gates -\nopt_reduce\nMerging mutually exclus"
+  },
+  {
+    "id": "W03",
+    "topic": "Logic Synthesis",
+    "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/using_yosys/synthesis/index.html",
+    "chunk_id": 4,
+    "text": "xer tree -\nopt_muxtree\nSimplifying large MUXes and AND/OR gates -\nopt_reduce\nMerging mutually exclusive cells with shared inputs -\nopt_share\nPerforming DFF optimizations -\nopt_dff\nHierarchical optimization -\nopt_hier\npass\nRemoving unused cells and wires -\nopt_clean\npass\nWhen to use\nopt\nor\nclean\nOther optimizations\nTechnology mapping\nCell substitution\nSubcircuit substitution\nGate-level technology mapping\nThe extract pass\nThe wrap-extract-unwrap method\nExample: DSP48_MACC\nThe ABC toolbox\nABC: the unit delay model, simple and efficient\nABC9: the generalised delay model, realistic and flexible\nSetting up a flow for ABC9\nspecify\nsyntax\nMapping to cell libraries\nA simple counter\nLoading the design"
+  },
+  {
+    "id": "W03",
+    "topic": "Logic Synthesis",
+    "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/using_yosys/synthesis/index.html",
+    "chunk_id": 5,
+    "text": "ting up a flow for ABC9\nspecify\nsyntax\nMapping to cell libraries\nA simple counter\nLoading the design\nCoarse-grain representation\nLogic gate mapping\nMapping to hardware"
+  },
+  {
+    "id": "W04",
+    "topic": "Placement",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+    "chunk_id": 1,
+    "text": "# Placement\n\n來源：https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html\n\n.md\n.pdf\nDetailed Placement\nContents\nDetailed Placement\n#\nThe detailed placement module in OpenROAD (\ndpl\n) legalizes the result of\nglobal placement: it moves instances to legal sites on rows while\nminimizing displacement. It is also used to re-legalize the design after\nincremental changes such as resizing and buffer insertion. It originated from OpenDP (Open-Source Detailed\nPlacement Engine) and now uses a negotiation-based legalizer (NBLG) by\ndefault, with the original OpenDP diamond search available as a legacy\nengine. It supports:\nMixed-cell-height (1x–4x) designs\nFence regions\nFragmented rows\nPlacem"
+  },
+  {
+    "id": "W04",
+    "topic": "Placement",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+    "chunk_id": 2,
+    "text": "a legacy\nengine. It supports:\nMixed-cell-height (1x–4x) designs\nFence regions\nFragmented rows\nPlacement padding and filler insertion\nPlacement Engines\n#\nDPL provides two options for legalization. Negotiation legalizer is the default and is slightly slower, but can handle dense designs. Diamond search is faster (linear runtime), although it is not able to handle dense designs. Diamond search is also used at the end of Negotiation for handling potential failed corner cases.\nNegotiationLegalizer\n#\nThe default two-pass legalizer based on the NBLG paper. Used on\nthe\ndetailed_placement\ncommand. The legacy diamond search engine can be\nselected with\n-use_diamond_legalizer\n.\nDiamond Search\n#\nFormer e"
+  },
+  {
+    "id": "W04",
+    "topic": "Placement",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+    "chunk_id": 3,
+    "text": "legacy diamond search engine can be\nselected with\n-use_diamond_legalizer\n.\nDiamond Search\n#\nFormer engine performs a BFS-style diamond search from each cell’s\nglobal placement position, expanding outward in Manhattan order until a\nlegal site is found.\nCommands\n#\nNote\nParameters in square brackets\n[-param\nparam]\nare optional.\nParameters without square brackets\n-param2\nparam2\nare required.\nDetailed Placement\n#\nThe\ndetailed_placement\ncommand performs detailed placement of instances\nto legal locations after global placement.\ndetailed_placement\n[\n-max_displacement\ndisp\n|\n{\ndisp_x\ndisp_y\n}]\n[\n-disallow_one_site_gaps\n]\n[\n-report_file_name\nfilename\n]\n[\n-use_diamond_legalizer\n]\n[\n-pdn_aware\n]\n[\n-site"
+  },
+  {
+    "id": "W04",
+    "topic": "Placement",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+    "chunk_id": 4,
+    "text": "low_one_site_gaps\n]\n[\n-report_file_name\nfilename\n]\n[\n-use_diamond_legalizer\n]\n[\n-pdn_aware\n]\n[\n-site_search_window\nsites\n]\n[\n-row_search_window\nrows\n]\n[\n-drc_penalty\npenalty\n]\n[\n-disable_window_extension\n]\n[\n-quiet\n]\nOptions\n#\nSwitch Name\nDescription\n-max_displacement\nMax distance that an instance can be moved (in microns) when finding a site where it can be placed. Either set one value for both directions or set\n{disp_x\ndisp_y}\nfor individual directions. The default values are\n{0,\n0}\n, and the allowed values within are integers\n[0,\nMAX_INT]\n.\n-disallow_one_site_gaps\nOption is deprecated.\n-report_file_name\nFile name for saving the report to (e.g.\nreport.json\n.)\n-incremental\nBy default DPL in"
+  },
+  {
+    "id": "W04",
+    "topic": "Placement",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+    "chunk_id": 5,
+    "text": "ort_file_name\nFile name for saving the report to (e.g.\nreport.json\n.)\n-incremental\nBy default DPL initiates with all instances unplaced. With this flag DPL will check for already legalized instances and set them as placed.\n-report_file_name\nFile name for saving the report to (e.g.\nreport.json\n.)\n-use_diamond_legalizer\nUse the legacy diamond search engine instead of the default NegotiationLegalizer.\n-pdn_aware\nCheck cell pins and obstructions against fixed vias on special power and ground nets. This check is disabled by default and works with both legalization engines. Supply pins must be connected to their special nets for same-net exemptions. The mode remains active for subsequent\noptimize_"
+  },
+  {
+    "id": "W04",
+    "topic": "Placement",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+    "chunk_id": 6,
+    "text": "cted to their special nets for same-net exemptions. The mode remains active for subsequent\noptimize_mirroring\nand\ncheck_placement\ncommands until the next\ndetailed_placement\ncall.\n-site_search_window\nNegotiationLegalizer: base number of sites a cell may be moved left or right of its initial position, capped by\n-max_displacement\n. Default\n20\n,\n0\nallowed (no horizontal movement).\n-row_search_window\nNegotiationLegalizer: base number of rows a cell may be moved up or down from its initial position, capped by\n-max_displacement\n. Default\n5\n,\n0\nallowed (no row changes).\n-disable_window_extension\nNegotiationLegalizer: disables all search-window extensions, so the window is fixed to the base\n-site_sea"
+  },
+  {
+    "id": "W04",
+    "topic": "Placement",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+    "chunk_id": 7,
+    "text": "iationLegalizer: disables all search-window extensions, so the window is fixed to the base\n-site_search_window\n/\n-row_search_window\nsize regardless of cell size or nearby walls. By default, the effective search window can instead grow past base sizing in two ways: (1) it’s extended to at least the cell’s own width/height, and (2) extended if cut short by a macro or core boundary.\n-drc_penalty\nNegotiationLegalizer: priority to DRC violations, ramped up each iteration to push DRC cleanup later in the run. Lower values tolerate DRC violations early on while overlaps are resolved. Default\n5\n,\n0\nallowed (disables the escalating per-candidate penalty, DRC-violating cells still accrue history cost "
+  },
+  {
+    "id": "W04",
+    "topic": "Placement",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+    "chunk_id": 8,
+    "text": "lowed (disables the escalating per-candidate penalty, DRC-violating cells still accrue history cost separately).\n-quiet\nLess verbose, shows: number of instances moves, displacement, HPWL, and runtime at logs and json. Use it when dpl is called by other stages (e.g. after clock tree synthesis or antenna repair).\nThe PDN-aware check covers overlap, conservative width/parallel-run-length\nrouting spacing, and default cut spacing, with same-net pin exemptions.\nIt does not check end-of-line rules, conditional cut-spacing rules, or\ngeometry added during pin access.\nThe existing pin-blockage check also exempts same-net pin geometry,\nwith or without\n-pdn_aware\n.\nRun\nglobal_connect\nafter buffer insert"
+  },
+  {
+    "id": "W04",
+    "topic": "Placement",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+    "chunk_id": 9,
+    "text": "o exempts same-net pin geometry,\nwith or without\n-pdn_aware\n.\nRun\nglobal_connect\nafter buffer insertion or resizing and before\ndetailed_placement\n-pdn_aware\nwhen global connection rules define the\nsupply bindings.\nSet Placement Padding\n#\nThe\nset_placement_padding\ncommand sets left and right padding in multiples\nof the row site width. Use the\nset_placement_padding\ncommand before\nlegalizing placement to leave room for routing. Use the\n-global\nflag\nfor padding that applies to all instances. Use\n-instances\nfor instance-specific padding.  The instances\ninsts\ncan be a list of instance\nnames, or an instance object returned by the SDC\nget_cells\ncommand. To\nspecify padding for all instances of a comm"
+  },
+  {
+    "id": "W04",
+    "topic": "Placement",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+    "chunk_id": 10,
+    "text": "nstance object returned by the SDC\nget_cells\ncommand. To\nspecify padding for all instances of a common master, use the\n-filter\n“ref_name ==\n” option to\nget_cells\n.\nset_placement_padding\n-global\n|-\nmasters\nmasters\n|-\ninstances\ninsts\n[\n-right\nsite_count\n]\n[\n-left\nsite_count\n]\nOptions\n#\nWarning\nEither one of these flags must be set:\n-global\n|\n-masters\n|\n-instances\n.\nThe order of preference is\nglobal\n>\nmasters\n>\ninstances\nSwitch Name\nDescription\n-global\nSet padding globally using\nleft\nand\nright\nvalues.\n-masters\nSet padding only for these masters using\nleft\nand\nright\nvalues.\n-instances\nFor\n-instances\n, you will set padding only for these insts using\nleft\nand\nright\nvalues.\n-left\nLeft padding (in s"
+  },
+  {
+    "id": "W04",
+    "topic": "Placement",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+    "chunk_id": 11,
+    "text": "es\n, you will set padding only for these insts using\nleft\nand\nright\nvalues.\n-left\nLeft padding (in site count).\n-right\nRight padding (in site count).\ninstances\nSet padding for these list of instances. Not to be confused with the\n-instances\nswitch above.\nFiller Placement\n#\nThe\nfiller_placement\ncommand fills gaps between detail-placed instances\nto connect the power and ground rails in the rows.\nfiller_masters\nis a\nlist of master/macro names to use for filling the gaps. Wildcard matching\nis supported, so\nFILL*\nwill match, e.g.,\nFILLCELL_X1\nFILLCELL_X16\nFILLCELL_X2\nFILLCELL_X32\nFILLCELL_X4\nFILLCELL_X8\n.  To specify a different naming prefix\nfrom\nFILLER_\nuse\n-prefix\n<new\nprefix>\n.\nfiller_placemen"
+  },
+  {
+    "id": "W04",
+    "topic": "Placement",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+    "chunk_id": 12,
+    "text": "L_X8\n.  To specify a different naming prefix\nfrom\nFILLER_\nuse\n-prefix\n<new\nprefix>\n.\nfiller_placement\n[\n-prefix\nprefix\n]\n[\n-verbose\n]\nfiller_masters\nOptions\n#\nSwitch Name\nDescription\n-prefix\nPrefix to name the filler cells. The default value is\nFILLER_\n.\n-verbose\nPrint the filler cell usage.\nfiller_masters\nFiller master cells.\nRemove Fillers\n#\nThis command removes all filler cells.\nremove_fillers\nCheck Placement\n#\nThe\ncheck_placement\ncommand checks the placement legality. It returns\n0\nif the placement is legal.\nWith\n-fixed\n, only fixed instances (e.g., tapcells and endcaps) and macros\nare checked, which validates the floorplan before the standard cells are\nplaced. With\n-placeable\n, only the "
+  },
+  {
+    "id": "W04",
+    "topic": "Placement",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+    "chunk_id": 13,
+    "text": "ked, which validates the floorplan before the standard cells are\nplaced. With\n-placeable\n, only the movable cells are checked. Without either\noption, both are checked.\ncheck_placement\n[\n-verbose\n]\n[\n-disallow_one_site_gaps\n]\n[\n-fixed\n]\n[\n-placeable\n]\n[\n-report_file_name\nfilename\n]\nOptions\n#\nSwitch Name\nDescription\n-verbose\nEnable verbose logging.\n-disallow_one_site_gaps\nOption is deprecated.\n-fixed\nCheck fixed instances and macros.\n-placeable\nCheck movable cells.\n-report_file_name\nFile name for saving the report to (e.g.\nreport.json\n.)\nOptimize Mirroring\n#\nThe\noptimize_mirroring\ncommand mirrors instances about the Y axis in\na weak attempt to reduce the total half-perimeter wirelength (HPWL)."
+  },
+  {
+    "id": "W04",
+    "topic": "Placement",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+    "chunk_id": 14,
+    "text": "s instances about the Y axis in\na weak attempt to reduce the total half-perimeter wirelength (HPWL).\noptimize_mirroring\nImprove Placement\n#\nThe\nimprove_placement\ncommand optimizes a given placed design.\nimprove_placement\n[\n-random_seed\nseed\n]\n[\n-max_displacement\ndisp\n|\n{\ndisp_x\ndisp_y\n}]\n[\n-disallow_one_site_gaps\n]\nUseful Developer Commands\n#\nIf you are a developer, you might find these useful. More details can be found in the\nsource file\nor the\nswig file\n.\nCommand Name\nDescription\ndetailed_placement_debug\nDebug detailed placement.\nget_masters_arg\nGet masters from a design.\nget_inst_bbox\nGet bounding box of an instance.\nget_inst_grid_bbox\nGet grid bounding box of an instance.\nformat_grid\nFor"
+  },
+  {
+    "id": "W04",
+    "topic": "Placement",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+    "chunk_id": 15,
+    "text": "ounding box of an instance.\nget_inst_grid_bbox\nGet grid bounding box of an instance.\nformat_grid\nFormat grid (takes in length\nx\nand site width\nw\nas inputs).\nget_row_site\nGet row site name.\nExample scripts\n#\nExamples scripts demonstrating how to run\ndpl\non a sample design of\naes\nas follows:\n./test/aes.tcl\nRegression tests\n#\nThere are a set of regression tests in\n./test\n. Refer to this\nsection\nfor more information.\nSimply run the following command:\nbazelisk\ntest\n//openroad/dpl/...\nLimitations\n#\nThe following limitations apply when using the NegotiationLegalizer (default):\nMultithreading\n: The negotiation pass is single-threaded.\nExtend with the inter-region parallelism from NBLG (Algorithm 2, "
+  },
+  {
+    "id": "W04",
+    "topic": "Placement",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+    "chunk_id": 16,
+    "text": "gotiation pass is single-threaded.\nExtend with the inter-region parallelism from NBLG (Algorithm 2, dynamic\nregion adjustment) using OpenMP or std::thread.\nFence region R-tree\n: Replace linear scan in\nFenceRegion::nearestRect()\nwith a spatial index (Boost.Geometry rtree or OpenROAD’s existing RTree)\nfor large designs with many fence sub-rectangles.\nRow rail inference\n: Currently uses row-index parity as a proxy for\nVDD/VSS. Replace with actual LEF pg_pin parsing once available in the\nbuild context.\nAuthors\n#\nSangGi Do and Mingyu Woo (respective Ph. D. advisors: Seokhyeong Kang,\nAndrew B. Kahng).\nRewrite and port to OpenDB/OpenROAD by James Cherry, Parallax Software\nReferences\n#\nDo, S., Woo, "
+  },
+  {
+    "id": "W04",
+    "topic": "Placement",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+    "chunk_id": 17,
+    "text": ").\nRewrite and port to OpenDB/OpenROAD by James Cherry, Parallax Software\nReferences\n#\nDo, S., Woo, M., & Kang, S. (2019, May). Fence-region-aware mixed-height standard cell legalization. In Proceedings of the 2019 on Great Lakes Symposium on VLSI (pp. 259-262).\n(.pdf)\nJ. Chen et al., “NBLG: A Robust Legalizer for Mixed-Cell-Height Modern Design,” IEEE TCAD, vol. 41, no. 11, 2022.\nL. McMurchie and C. Ebeling, “PathFinder: A negotiation-based performance-driven router for FPGAs,” 1995.\nLicense\n#\nBSD 3-Clause License. See\nLICENSE\nfile.\nContents"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 1,
+    "text": "# Routing\n\n來源：https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html\n\n.md\n.pdf\nGlobal Routing\nContents\nGlobal Routing\n#\nThe global routing module in OpenROAD (\ngrt\n) is based on FastRoute, an\nopen-source global router originally derived from Iowa State University’s\nFastRoute4.1 algorithm.\nCommands\n#\nNote\nParameters in square brackets\n[-param\nparam]\nare optional.\nParameters without square brackets\n-param2\nparam2\nare required.\nGlobal Route\n#\nThis command performs global routing with the option to use a\nguide_file\n.\nYou may also choose to use incremental global routing using\n-start_incremental\n.\nglobal_route\n[\n-guide_file\nout_file\n]\n[\n-congestion_iterations\niterations\n]\n[\n-cong"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 2,
+    "text": "rt_incremental\n.\nglobal_route\n[\n-guide_file\nout_file\n]\n[\n-congestion_iterations\niterations\n]\n[\n-congestion_report_file\nfile_name\n]\n[\n-congestion_report_iter_step\nsteps\n]\n[\n-grid_origin\n{\nx\ny\n}]\n[\n-critical_nets_percentage\npercent\n]\n[\n-skip_large_fanout_nets\nfanout\n]\n[\n-allow_congestion\n]\n[\n-snapshot_batched_width\nwidth\n]\n[\n-verbose\n]\n[\n-start_incremental\n]\n[\n-end_incremental\n]\n[\n-use_cugr\n]\n[\n-resistance_aware\n]\n[\n-res_aware_nets_percentage\npercent\n]\n[\n-infinite_cap\n]\nOptions\n#\nSwitch Name\nDescription\n-guide_file\nSet the output guides file name (e.g.,\nroute.guide\n).\n-congestion_iterations\nSet the maximum number of iterations made to remove the congestion of the routing; the router stops earl"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 3,
+    "text": "the maximum number of iterations made to remove the congestion of the routing; the router stops earlier once the iterations no longer reduce it. The default value is\n50\nfor FastRoute and\n5\nwhen\n-use_cugr\nis set; the allowed values are integers\n[0,\nMAX_INT]\n.\n-congestion_report_file\nSet the file name to save the congestion report. The file generated can be read by the DRC viewer in the GUI (e.g.,\nreport_file.rpt\n).\n-congestion_report_iter_step\nSet the number of iterations to report. The default value is\n0\n, and the allowed values are integers\n[0,\nMAX_INT]\n.\n-grid_origin\nSet the (x, y) origin of the routing grid in DBU. For example,\n-grid_origin\n{1\n1}\ncorresponds to the die (0, 0) + 1 DBU in e"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 4,
+    "text": " the routing grid in DBU. For example,\n-grid_origin\n{1\n1}\ncorresponds to the die (0, 0) + 1 DBU in each x–, y- direction.\n-critical_nets_percentage\nSet the percentage of nets with the worst slack value that are considered timing critical, having preference over other nets during congestion iterations (e.g.\n-critical_nets_percentage\n30\n). The default value is\n0\n, and the allowed values are integers\n[0,\nMAX_INT]\n.\n-skip_large_fanout_nets\nSkips routing for nets with a fanout higher than the specified limit. Nets above this pin count threshold are ignored by the global router and will not have routing guides, meaning they will also be skipped during detailed routing. This option is useful in deb"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 5,
+    "text": "ting guides, meaning they will also be skipped during detailed routing. This option is useful in debugging or estimation flows where high-fanout nets (such as pre-CTS clock nets) can be ignored. The default value is 0, indicating no fanout limit. The default value is\nMAX_INT\n. The allowed values are integers\n[0,\nMAX_INT]\n.\n-allow_congestion\nAllow global routing results to be generated with remaining congestion. The default is false.\n-verbose\nThis flag enables the full reporting of the global routing.\n-start_incremental\nThis flag initializes the GRT listener to get the net modified. The default is false.\n-end_incremental\nThis flag run incremental GRT with the nets modified. The default is fal"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 6,
+    "text": " is false.\n-end_incremental\nThis flag run incremental GRT with the nets modified. The default is false.\n-use_cugr\nThis flag run GRT using CUGR as the router solver. NOTE: this is not ready for production.\n-resistance_aware\nThis flag enables resistance-aware layer assignment and 3D routing. NOTE: this is not ready for production.\n-res_aware_nets_percentage\nSet the percentage of resistance-aware nets (e.g.\n-res_aware_nets_percentage\n100\n(for 100%)). The default value is\n15\nwith resistance-aware enabled and\n0\notherwise, and the allowed values are floats between\n[0,\n100]\n.\n-infinite_cap\nEnables “infinite” gcell capacity for testing purpose. NOTE: this is not recommended for production flows.\n-sn"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 7,
+    "text": "nfinite” gcell capacity for testing purpose. NOTE: this is not recommended for production flows.\n-snapshot_batched_width\nSet the semantic width of snapshot-batched routing (max batches per wave). The default is\n0\n, preserving the non-batched behavior. Set a positive integer to enable batched routing; allowed values are integers\n[1,\nMAX_INT]\n. Execution width still follows\nset_thread_count\n. NOTE: this is not recommended for production flows; it is intended for exploration and research projects.\nSet Routing Layers\n#\nThis command sets the minimum and maximum routing layers for signal and clock nets.\nExample:\nset_routing_layers\n-signal\nMetal2-Metal10\n-clock\nMetal6-Metal9\nset_routing_layers\n[\n-s"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 8,
+    "text": "ets.\nExample:\nset_routing_layers\n-signal\nMetal2-Metal10\n-clock\nMetal6-Metal9\nset_routing_layers\n[\n-signal\nmin-max\n]\n[\n-clock\nmin-max\n]\nOptions\n#\nSwitch Name\nDescription\n-signal\nSet the min and max routing signal layer (names) in this format “%s-%s”.\n-clock\nSet the min and max routing clock layer (names) in this format “%s-%s”.\nSet Macro Extension\n#\nThis command sets the halo (in terms of GCells) along the boundaries of macros.\nA\nGCell\nis typically defined in terms of\nMx\nrouting tracks.\nExample:\nset_macro_extension\n2\nset_macro_extension\nextension\nOptions\n#\nArgument Name\nDescription\nextension\nNumber of\nGCells\nadded to the blockage boundaries from macros. The default\nGCell\nsize is 15\nM3\npitches"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 9,
+    "text": "mber of\nGCells\nadded to the blockage boundaries from macros. The default\nGCell\nsize is 15\nM3\npitches.\nSet Global Routing Layer Adjustment\n#\nThe\nset_global_routing_layer_adjustment\ncommand sets routing resource\nadjustments in the routing layers of the design.  Such adjustments reduce the number of\nrouting tracks that the global router assumes to exist. This promotes the spreading of routing\nand reduces peak congestion, to reduce challenges for detailed routing.\nYou can set adjustment for a\nspecific layer, e.g.,\nset_global_routing_layer_adjustment\nMetal4\n0.5\nreduces\nthe routing resources of routing layer\nMetal4\nby 50%.  You can also set adjustment\nfor all layers at once using\n*\n, e.g.,\nset_glo"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 10,
+    "text": "ing layer\nMetal4\nby 50%.  You can also set adjustment\nfor all layers at once using\n*\n, e.g.,\nset_global_routing_layer_adjustment\n*\n0.3\nreduces the routing resources of all routing layers by 30%.  And, you can\nalso set resource adjustment for a layer range, e.g.:\nset_global_routing_layer_adjustment\nMetal4-Metal8\n0.3\nreduces the routing resources of routing layers\nMetal4\n,\nMetal5\n,\nMetal6\n,\nMetal7\nand\nMetal8\nby 30%.\nNegative adjustment values can be used to increase the capacity of a given metal layer. For example,\nset_global_routing_layer_adjustment\nMetal5\n-0.5\nwill increase the total capacity of\nMetal5\nby 50%.\nset_global_routing_layer_adjustment\nlayer\nadjustment\nOptions\n#\nArgument Name\nDescr"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 11,
+    "text": "of\nMetal5\nby 50%.\nset_global_routing_layer_adjustment\nlayer\nadjustment\nOptions\n#\nArgument Name\nDescription\nlayer\nString for the layer name.\nadjustment\nFloat indicating the percentage reduction of each edge in the specified layer.\nSet Global Routing Region Adjustment\n#\nSet global routing region adjustment.\nExample:\nset_global_routing_region_adjustment\n{1.5\n2\n20\n30.5}\n-layer\nMetal4\n-adjustment\n0.7\nset_global_routing_region_adjustment\n{\nlower_left_x\nlower_left_y\nupper_right_x\nupper_right_y\n}\n-layer\nlayer\n-adjustment\nadjustment\nOptions\n#\nSwitch Name\nDescription\nlower_left_x\n,\nlower_left_y\n,\nupper_right_x\n,\nupper_right_y\nBounding box to consider.\n-layer\nString for the layer name.\n-adjustment\nFloa"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 12,
+    "text": "right_x\n,\nupper_right_y\nBounding box to consider.\n-layer\nString for the layer name.\n-adjustment\nFloat indicating the percentage reduction of each edge in the specified layer.\nSet Global Routing Randomness\n#\nThe command randomizes global routing by shuffling the order of the nets\nand randomly subtracts or adds to the capacities of a random set of edges.\nExample:\nset_global_routing_random\n-seed\n42\n\\\n-capacities_perturbation_percentage\n50\n\\\n-perturbation_amount\n2\nset_global_routing_random\n[\n-seed\nseed\n]\n[\n-capacities_perturbation_percentage\npercent\n]\n[\n-perturbation_amount\nvalue\n]\nOptions\n#\nSwitch Name\nDescription\n-seed\nSets the random seed (must be non-zero for randomization).\n-capacities_pert"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 13,
+    "text": "h Name\nDescription\n-seed\nSets the random seed (must be non-zero for randomization).\n-capacities_perturbation_percentage\nSets the percentage of edges whose capacities are perturbed. By default, the edge capacities are perturbed by adding or subtracting 1 (track) from the original capacity.\n-perturbation_amount\nSets the perturbation value of the edge capacities. This option is only meaningful when\n-capacities_perturbation_percentage\nis used.\nSet Specific Nets to Route\n#\nThe\nset_nets_to_route\ncommand defines a list of nets to route. Only the nets\ndefined in this command are routed, leaving the remaining nets without any\nglobal route guides.\nset_nets_to_route\nnet_names\nOptions\n#\nSwitch Name\nDesc"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 14,
+    "text": "maining nets without any\nglobal route guides.\nset_nets_to_route\nnet_names\nOptions\n#\nSwitch Name\nDescription\nnet_names\nTcl list of set of nets (e.g.\n{net1,\nnet2}\n).\nRepair Antennas\n#\nThe\nrepair_antennas\ncommand checks the global routing for antenna\nviolations and repairs the violations by inserting jumpers and diodes\nnear the gates of the violating nets. Both methods are applied unless\n-jumper_only\nor\n-diode_only\nrestricts repair to one of them.\nBy default the command runs only one\niteration to repair antennas. Filler instances added by the\nfiller_placement\ncommand should NOT be in the database when\nrepair_antennas\nis called.\nSee LEF/DEF 5.8 Language Reference, Appendix C, “Calculating and\nFi"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 15,
+    "text": " when\nrepair_antennas\nis called.\nSee LEF/DEF 5.8 Language Reference, Appendix C, “Calculating and\nFixing Process Antenna Violations” for a\ndescription\nof antenna violations.\nIf no\ndiode_cell\nargument is specified the LEF cell with class CORE, ANTENNACELL will be used.\nIf any repairs are made the filler instances are remove and must be\nplaced with the\nfiller_placement\ncommand.\nIf the LEF technology layer\nANTENNADIFFSIDEAREARATIO\nproperties are constant\ninstead of PWL, inserting diodes will not improve the antenna ratios,\nand thus, no\ndiodes are inserted. The following warning message will be reported:\n[\nWARNING\nGRT\n-\n0243\n]\nUnable\nto\nrepair\nantennas\non\nnet\nwith\ndiodes\n.\nrepair_antennas\n[\ndiod"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 16,
+    "text": "ported:\n[\nWARNING\nGRT\n-\n0243\n]\nUnable\nto\nrepair\nantennas\non\nnet\nwith\ndiodes\n.\nrepair_antennas\n[\ndiode_cell\n]\n[\n-iterations\niterations\n]\n[\n-ratio_margin\nmargin\n]\n[\n-jumper_only\n]\n[\n-diode_only\n]\nOptions\n#\nSwitch Name\nDescription\ndiode_cell\nDiode cell to fix antenna violations.\n-iterations\nNumber of iterations. The default value is\n1\n, and the allowed values are integers\n[0,\nMAX_INT]\n.\n-ratio_margin\nAdd a margin to the antenna ratios. The default value is\n0\n, and the allowed values are integers\n[0,\n100]\n.\n-jumper_only\nFix antenna violations using jumper insertion only, without inserting diodes. Mutually exclusive with\n-diode_only\n.\n-diode_only\nFix antenna violations using diode insertion only,"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 17,
+    "text": "Mutually exclusive with\n-diode_only\n.\n-diode_only\nFix antenna violations using diode insertion only, without inserting jumpers. Mutually exclusive with\n-jumper_only\n.\nDraw Route Segments\n#\nThe\ndraw_route_segments\ncommand draws the route segments for a set of nets in the GUI.\ndraw_route_segments\nnet_names\n[\n-show_pin_locations\n]\nOptions\n#\nSwitch Name\nDescription\nnet_names\nTcl list of nets (e.g.\n{net1\nnet2}\n).\n-show_pin_locations\nDraw circles for the pin positions on the routing grid.\nReport Wirelength\n#\nThe\nreport_wire_length\ncommand reports the wire length of the nets. Use the\n-global_route\nand the\n-detailed_route\nflags to report the wire length from global and detailed routing,\nrespectively"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 18,
+    "text": "d the\n-detailed_route\nflags to report the wire length from global and detailed routing,\nrespectively. If none of these flags are used, the tool will identify the state of the design\nand report the wire length accordingly.\nExample:\nreport_wire_length\n-net\n{clk\nnet60}\n-global_route\n-detailed_route\n-verbose\n-file\nout.csv\nreport_wire_length\n[\n-net\nnet_list\n]\n[\n-file\nfile\n]\n[\n-global_route\n]\n[\n-detailed_route\n]\n[\n-verbose\n]\n[\n-summary\n]\nOptions\n#\nSwitch Name\nDescription\n-net\nList of nets to report the wirelength. Use\n*\nto report the wire length for all nets of the design.\n-file\nThe name of the file for the wirelength report.\n-global_route\nReport the wire length of the global routing.\n-detailed_ro"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 19,
+    "text": " for the wirelength report.\n-global_route\nReport the wire length of the global routing.\n-detailed_route\nReport the wire length of the detailed routing.\n-verbose\nThis flag enables the full reporting of the layer-wise wirelength information.\n-summary\nThis flag reports the wire length for each layer of the design.\nReport Net Detours\n#\nThe\nreport_net_detours\ncommand reports how much each net’s global route\ndetours from its initial Steiner tree, as the difference and the ratio between\nthe routed wirelength and the Steiner tree wirelength. Both are measured from\nthe center of the gcell where each pin is accessed, and the routed wirelength\nonly counts planar wire length, so a route that follows the"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 20,
+    "text": "n is accessed, and the routed wirelength\nonly counts planar wire length, so a route that follows the Steiner tree has a\nratio of 1. The Steiner wirelength is captured by\nglobal_route\nand refreshed\nfor the nets rerouted by incremental global routing, with both FastRoute and\nCUGR. For a design read with global routing guides, it is computed from the\npins when the command runs. Without\n-net\n, the command reports the totals over\nall routed nets and the nets with the largest detour ratio. Local nets, with\nall pins in the same gcell, are skipped. This command is read-only and does not\nchange the routing.\nExample:\nreport_net_detours\n-top_n\n20\n-file\ndetours.txt\nreport_net_detours\n[\n-net\nnet_list\n]\n["
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 21,
+    "text": "ting.\nExample:\nreport_net_detours\n-top_n\n20\n-file\ndetours.txt\nreport_net_detours\n[\n-net\nnet_list\n]\n[\n-file\nfile\n]\n[\n-top_n\ncount\n]\nOptions\n#\nSwitch Name\nDescription\n-net\nList of nets to report the detour. When set,\n-top_n\nis ignored.\n-file\nThe name of the file where a\ngrt_detour:\nnet\ninitial_um\nfinal_um\ndelta_um\nratio\nline is appended for each reported net. Without\n-net\n, all analyzed nets are written.\n-top_n\nNumber of nets with the largest detour ratio to report. The default value is\n10\n.\nReport Congestion\n#\nThe\nreport_congestion\ncommand reports the overflow of the current global\nrouting per routing layer, in the same table\nglobal_route\n-verbose\nprints at\nthe end of the routing. It works wi"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 22,
+    "text": "routing layer, in the same table\nglobal_route\n-verbose\nprints at\nthe end of the routing. It works with FastRoute and CUGR. Unlike FastRoute,\nCUGR can finish an incremental global routing with congestion, so use it with\nhas_congestion\nto report that congestion. Run\nglobal_route\nfirst.\nExample:\nif\n{\n[has_congestion]\n}\n{\nreport_congestion\n}\nreport_congestion\nHas Congestion\n#\nThe\nhas_congestion\ncommand returns 1 if the current global routing has\noverflow and 0 otherwise. Run\nglobal_route\nfirst.\nhas_congestion\nGlobal Route Debug Mode\n#\nThe\nglobal_route_debug\ncommand allows you to start a debug mode to view the status of the Steiner Trees.\nIt also allows you to dump the input positions for the Ste"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 23,
+    "text": " to view the status of the Steiner Trees.\nIt also allows you to dump the input positions for the Steiner tree creation of a net.\nThis must be used before calling the\nglobal_route\ncommand.\nSet the name of the net and the trees that you want to visualize.\nThe\n-st\n/\n-rst\n/\n-tree2D\n/\n-tree3D\n/\n-edges3D\nflags apply to the default\nFastRoute engine, the\n-cugr_*\nflags to CUGR (\nglobal_route\n-use_cugr\n). Each\nselected stage redraws the net and pauses; a stage CUGR skips is silently\ninactive.\nWith\nset_debug_level\nGRT\ncugr_slack\n1\neach selected stage also logs the debug\nnet’s slack: the stage’s result, then in parentheses the cached slack CUGR\nordered that stage with and the delta between them. This ne"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 24,
+    "text": "hen in parentheses the cached slack CUGR\nordered that stage with and the delta between them. This needs no GUI. The\ntrace re-estimates parasitics to report a stage’s result, so post-route timing\ncan differ slightly from a run without it.\nglobal_route_debug\n[\n-st\n]\n[\n-rst\n]\n[\n-tree2D\n]\n[\n-tree3D\n]\n[\n-edges3D\n]\n[\n-cugr_pattern\n]\n[\n-cugr_res_aware\n]\n[\n-cugr_detours\n]\n[\n-cugr_maze\n]\n[\n-cugr_rrr\n]\n[\n-saveSttInput\nfile_name\n]\n[\n-net\nnet_name\n]\nOptions\n#\nSwitch Name\nDescription\n-st\nShow the Steiner Tree generated by\nstt\n.\n-rst\nShow the Rectilinear Steiner Tree generated by\ngrt\n.\n-tree2D\nShow the Rectilinear Steiner Tree generated by\ngrt\nafter the congestion iterations.\n-tree3D\nShow the 3D Rectiline"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 25,
+    "text": "ilinear Steiner Tree generated by\ngrt\nafter the congestion iterations.\n-tree3D\nShow the 3D Rectilinear Steiner Tree post-layer assignment.\n-edges3D\nShow each edge being rerouted post-layer assignment.\n-cugr_pattern\nCUGR: topology after pattern routing (stage 1).\n-cugr_res_aware\nCUGR: topology after the resistance-aware re-route (stage 2).\n-cugr_detours\nCUGR: topology after pattern routing with detours (stage 3).\n-cugr_maze\nCUGR: topology after maze routing (stage 4).\n-cugr_rrr\nCUGR: topology after each rip-up and re-route iteration (stage 5).\n-saveSttInput\nFile name to save\nstt\ninput of a net.\n-net\nThe name of the net name to be displayed.\nRead Global Routing Guides\n#\nThis command reads glob"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 26,
+    "text": "\n-net\nThe name of the net name to be displayed.\nRead Global Routing Guides\n#\nThis command reads global routing guides.\nread_guides\nfile_name\nOptions\n#\nSwitch Name\nDescription\nfile_name\nPath to global routing guide.\nWrite Global Routing Segments\n#\nThis command writes global routing segments, the raw routing data generated by\nthe global routing tool.\nwrite_global_route_segments\nfile_name\nOptions\n#\nSwitch Name\nDescription\nfile_name\nPath to global routing segments file.\nRead Global Routing Segments\n#\nThis command reads global routing segments, the raw routing data generated by\nthe global routing tool. Reading this format allows to perform parasitics\nextraction, repair antennas and incremental ro"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 27,
+    "text": "ool. Reading this format allows to perform parasitics\nextraction, repair antennas and incremental routing over the input segments\nfile.\nread_global_route_segments\nfile_name\nOptions\n#\nSwitch Name\nDescription\nfile_name\nPath to global routing segments file.\nEstimate Path Resistance Between Two Pins\n#\nThis command calculates the path resistance between two pins considering the\nvias and wires connecting them. The two pins need to be connected by the same\nwire.\nestimate_path_resistance\npin_name_1\npin_name_2\n[\n-verbose\n]\nOptions\n#\nSwitch Name\nDescription\npin_name_1\nPin name 1 (e.g.,\n_437_/Y\n).\npin_name_2\nPin name 1 (e.g.,\n_438_/A\n).\n-verbose\nPrint path details.\nExample scripts\n#\nExamples scripts de"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 28,
+    "text": "me_2\nPin name 1 (e.g.,\n_438_/A\n).\n-verbose\nPrint path details.\nExample scripts\n#\nExamples scripts demonstrating how to run FastRoute on a sample design of\ngcd\nas follows:\n./test/gcd.tcl\nUseful Developer Commands\n#\nIf you are a developer, you might find these useful. More details can be found in the\nsource file\nor the\nswig file\n.\nCommand Name\nDescription\ncheck_routing_layer\nCheck if the layer is within the min/max routing layer specified.\nparse_layer_name\nGet routing layer number from layer name\nparse_layer_range\nParses a range from\nlayer_range\nargument of format (%s-%s).\ncmd\nargument is not used.\ncheck_region\nChecks the defined region if its within the die area.\nhave_detailed_route\nChecks if"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 29,
+    "text": "ed.\ncheck_region\nChecks the defined region if its within the die area.\nhave_detailed_route\nChecks if block has detailed route already.\ndesign_is_placed\nChecks if every pin and every instance on a signal net is placed.\nhave_congested_routes\nChecks if block has global routes that are congested and were not accepted with\n-allow_congestion\n.\nRegression tests\n#\nThere are a set of regression tests in\n./test\n. For more information, refer to this\nsection\n.\nSimply run the following command:\nbazelisk\ntest\n//openroad/grt/...\nLimitations\n#\nUsing the Python interface to grt\n#\nWarning\nThe\nPython\ninterface is currently in development and is subject to change.\nThe\nPython\nAPI tries to stay close to the API d"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 30,
+    "text": "s currently in development and is subject to change.\nThe\nPython\nAPI tries to stay close to the API defined in the\nC++\nclass\nGlobalRouter\nthat is located\nhere\nWhen initializing a design, a sequence of\nPython\ncommands might look like\nthe following:\nfrom\nopenroad\nimport\nDesign\n,\nTech\ntech\n=\nTech\n()\ntech\n.\nreadLef\n(\n...\n)\ndesign\n=\nDesign\n(\ntech\n)\ndesign\n.\nreadDef\n(\n...\n)\ngr\n=\ndesign\n.\ngetGlobalRouter\n()\nHere are some options to the\nglobal_route\ncommand. (See\nGlobalRouter.h\nfor a complete list)\ngr\n.\nsetGridOrigin\n(\nx\n,\ny\n)\n# int, default 0,0\ngr\n.\nsetCongestionReportFile\n(\nfile_name\n)\n# string\ngr\n.\nsetCongestionIterations\n(\nn\n)\n# int, default 50\ngr\n.\nsetAllowCongestion\n(\nallowCongestion\n)\n# boolea"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 31,
+    "text": "setCongestionIterations\n(\nn\n)\n# int, default 50\ngr\n.\nsetAllowCongestion\n(\nallowCongestion\n)\n# boolean, default False\ngr\n.\nsetCriticalNetsPercentage\n(\npercentage\n)\n# float\ngr\n.\nsetMinRoutingLayer\n(\nminLayer\n)\n# int\ngr\n.\nsetMaxRoutingLayer\n(\nmaxLayer\n)\n# int\ngr\n.\nsetMinLayerForClock\n(\nminLayer\n)\n# int\ngr\n.\nsetMaxLayerForClock\n(\nmaxLayer\n)\n# int\ngr\n.\nsetVerbose\n(\nv\n)\n# boolean, default False\nand when ready to actually do the global route:\ngr\n.\nglobalRoute\n(\nsave_guides\n)\n# boolean, default False\nIf you have set\nsave_guides\nto True, you can then save the guides in\nfile_name\nwith:\ndesign\n.\ngetBlock\n()\n.\nwriteGuides\n(\nfile_name\n)\nYou can find the index of a named layer with\nlindex\n=\ntech\n.\ngetDB\n("
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 32,
+    "text": "\n()\n.\nwriteGuides\n(\nfile_name\n)\nYou can find the index of a named layer with\nlindex\n=\ntech\n.\ngetDB\n()\n.\ngetTech\n()\n.\nfindLayer\n(\nlayer_name\n)\nor, if you only have the\nPython\ndesign object\nlindex\n=\ndesign\n.\ngetTech\n()\n.\ngetDB\n()\n.\ngetTech\n()\n.\nfindLayer\n(\nlayer_name\n)\nBe aware that much of the error checking is done in\nTcl\n, so that with\nthe current\nC++\n/\nPython\nAPI, that might be an issue to deal\nwith. There are also some useful\nPython\nfunctions located in the\ngrt_aux.py\nfile\nbut these are not considered a part of the\nfinal\nAPI and may be subject to change.\nReferences\n#\nDatabase comes from\nOpenDB\nFastRoute 4.1 documentation\n.  The FastRoute4.1\nversion was received from\nYue Xu\non June 15, 201"
+  },
+  {
+    "id": "W05",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "chunk_id": 33,
+    "text": "nDB\nFastRoute 4.1 documentation\n.  The FastRoute4.1\nversion was received from\nYue Xu\non June 15, 2019.\nMin Pan, Yue Xu, Yanheng Zhang and Chris Chu. “FastRoute: An Efficient and\nHigh-Quality Global Router. VLSI Design, Article ID 608362, 2012.”\nAvailable\nhere\n.\nC. J. Alpert, T. C. Hu, J. H. Huang, A. B. Kahng and\nD. Karger, “Prim-Dijkstra Tradeoffs for Improved Performance-Driven\nGlobal Routing”, IEEE Transactions on Computer-Aided Design of\nIntegrated Circuits and Systems 14(7) (1995), pp. 890-896. Available\nhere\n.\nLicense\n#\nBSD 3-Clause License. See\nLICENSE\nfile.\nContents"
+  },
+  {
+    "id": "W06",
+    "topic": "IC Design Verification",
+    "url": "https://openlane2.readthedocs.io/en/stable/",
+    "chunk_id": 1,
+    "text": "# IC Design Verification\n\n來源：https://openlane2.readthedocs.io/en/stable/\n\nThe OpenLane 2 Documentation\n¶\nNote\nThis documentation pertains to the infrastructure library available at\nhttps://github.com/efabless/openlane2\n. To disambiguate it from the flow\ndesigned for use with\nOpenMPW\nand\nchipIgnite\nthe landing page\nrefers to this release as “OpenLane 2.”\nSee\nthe FAQ\nfor more info on which version of OpenLane\nyou should be using.\nOpenLane 2 is a powerful and versatile infrastructure library that enables the\nconstruction of digital ASIC implementation flows based on open-source and\ncommercial EDA tools. It includes a reference flow\n(\nClassic\nBETA\n) that is built entirely using open-source EDA\nt"
+  },
+  {
+    "id": "W06",
+    "topic": "IC Design Verification",
+    "url": "https://openlane2.readthedocs.io/en/stable/",
+    "chunk_id": 2,
+    "text": " tools. It includes a reference flow\n(\nClassic\nBETA\n) that is built entirely using open-source EDA\ntools, and allowing designers to abstract the underlying tools and configure\ntheir behavior with a single configuration file.\nOpenLane 2 also supports the ability to freely extend or modify flows using\nPython scripts and utilities.\nCurrently, OpenLane 2 and its default flow support all variants of the open-source\nSkywater PDK\nand some variants of\nthe open-source\nGlobalFoundries PDK\n.\nSee\nUsing PDKs\nfor more info.\nHere are some of the key benefits of using OpenLane 2:\nFlexibility and extensibility\n: OpenLane 2 is designed to be flexible and\nextensible, allowing designers to customize flows to me"
+  },
+  {
+    "id": "W06",
+    "topic": "IC Design Verification",
+    "url": "https://openlane2.readthedocs.io/en/stable/",
+    "chunk_id": 3,
+    "text": "\n: OpenLane 2 is designed to be flexible and\nextensible, allowing designers to customize flows to meet their specific\nneeds. This can be done by writing Python scripts and utilities,\nor by modifying the existing configuration file.\nOpen source\n: OpenLane 2 is an open-source project, which means that it is\nfreely available to use and modify. This makes it a good choice for designers\nwho are looking for a cost-effective and transparent solution.\nCommunity support\n: OpenLane capitalizes on OpenLane’s existing community of\nusers and contributors. This means that there is a wealth of resources\navailable to help designers get started and troubleshoot any problems\nthey encounter.\nFollow the navigat"
+  },
+  {
+    "id": "W06",
+    "topic": "IC Design Verification",
+    "url": "https://openlane2.readthedocs.io/en/stable/",
+    "chunk_id": 4,
+    "text": "lable to help designers get started and troubleshoot any problems\nthey encounter.\nFollow the navigation element below (or check the sidebar on the left) to\nget started."
+  }
+]

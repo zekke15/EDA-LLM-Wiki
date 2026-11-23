@@ -1,0 +1,136 @@
+{
+  "timestamp_utc": "2026-11-23T14:23:00.373670+00:00",
+  "retrieval_tests": [
+    {
+      "question": "IC 設計中的 EDA 是什麼？",
+      "results": [
+        {
+          "id": "W06",
+          "topic": "IC Design Verification",
+          "url": "https://openlane2.readthedocs.io/en/stable/",
+          "score": 0.1102,
+          "text": "# IC Design Verification\n\n來源：https://openlane2.readthedocs.io/en/stable/\n\nThe OpenLane 2 Documentation\n¶\nNote\nThis documentation pertains to the infrastructure library available at\nhttps://github.com/efabless/openlane2\n. To disambiguate it from the flow\ndesigned for use with\nOpenMPW\nand\nchipIgnite\nthe landing page\nrefers to this release as “OpenLane 2.”\nSee\nthe FAQ\nfor more info on which version of OpenLane\nyou should be using.\nOpenLane 2 is a powerful and versatile infrastructure library that enables the\nconstruction of digital ASIC implementation flows based on open-source and\ncommercial EDA tools. It includes a reference flow\n(\nClassic\nBETA\n) that is built entirely using open-source EDA\nt"
+        },
+        {
+          "id": "W01",
+          "topic": "EDA Introduction",
+          "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+          "score": 0.0827,
+          "text": "# EDA Introduction\n\n來源：https://openroad.readthedocs.io/en/latest/main/README2.html\n\n.md\n.pdf\nOpenROAD\nContents\nOpenROAD\n#\nAbout OpenROAD\n#\nOpenROAD is the leading open-source, foundational application for\nsemiconductor digital design. The OpenROAD flow delivers an\nAutonomous, No-Human-In-Loop (NHIL) flow, 24 hour turnaround from\nRTL-GDSII for rapid design exploration and physical design implementation.\nOpenROAD Mission\n#\nOpenROAD\neliminates the barriers\nof cost, schedule risk and uncertainty in hardware design to promote\nopen access to rapid, low-cost IC design software and expertise and\nsystem innovation. The OpenROAD application enables flexible flow\ncontrol through an API with bindings in"
+        },
+        {
+          "id": "W06",
+          "topic": "IC Design Verification",
+          "url": "https://openlane2.readthedocs.io/en/stable/",
+          "score": 0.0439,
+          "text": " tools. It includes a reference flow\n(\nClassic\nBETA\n) that is built entirely using open-source EDA\ntools, and allowing designers to abstract the underlying tools and configure\ntheir behavior with a single configuration file.\nOpenLane 2 also supports the ability to freely extend or modify flows using\nPython scripts and utilities.\nCurrently, OpenLane 2 and its default flow support all variants of the open-source\nSkywater PDK\nand some variants of\nthe open-source\nGlobalFoundries PDK\n.\nSee\nUsing PDKs\nfor more info.\nHere are some of the key benefits of using OpenLane 2:\nFlexibility and extensibility\n: OpenLane 2 is designed to be flexible and\nextensible, allowing designers to customize flows to me"
+        }
+      ]
+    },
+    {
+      "question": "RTL 和 Verilog 是什麼？",
+      "results": [
+        {
+          "id": "W02",
+          "topic": "RTL Design",
+          "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/",
+          "score": 0.3031,
+          "text": "king\nMinimizing failing (or bugged) designs\nBefore you start\nMinimizing RTLIL designs with bugpoint\nMinimizing Verilog designs\nIdentifying issues\nNotes on Verilog support in Yosys\nUnsupported Verilog-2005 Features\nVerilog Attributes and non-standard features\nNon-standard or SystemVerilog features for formal verification\nSupported features from SystemVerilog\nScripting with Pyosys\nGetting Pyosys\nScripting and Database Inspection\nModifying the Database\nEncapsulating as Passes\nYosys internals\nInternal flow\nFlow overview\nControl and data flow\nThe Verilog and AST frontends\nInternal formats\nThe RTL Intermediate Language (RTLIL)\nWorking with the Yosys codebase\nWriting extensions\nCompiling with Verif"
+        },
+        {
+          "id": "W01",
+          "topic": "EDA Introduction",
+          "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+          "score": 0.0625,
+          "text": "e \"*.metrics_limits\" files\nsave_flow_metrics_limits <TEST_NAME>\nRun\n#\nopenroad [-help] [-version] [-no_init] [-exit] [-gui]\n         [-threads count|max] [-log file_name] [-db file_name] cmd_file\n  -help              show help and exit\n  -version           show version and exit\n  -no_init           do not read .openroad init file\n  -threads count|max use count threads (default max)\n  -no_splash         do not show the license splash at startup\n  -exit              exit after reading cmd_file\n  -gui               start in gui mode\n  -log <file_name>   write a log in <file_name>\n  -db <file_name>    open a .odb database at startup\n  cmd_file           source cmd_file\nOpenROAD sources the Tcl c"
+        },
+        {
+          "id": "W02",
+          "topic": "RTL Design",
+          "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/",
+          "score": 0.0609,
+          "text": "ppendix\nA primer on digital circuit synthesis\nRTLIL text representation\nAuxiliary libraries\nAuxiliary programs\nLiterature references\nInternal cell library\nWord-level cells\nUnary operators\nBinary operators\nMultiplexers\nRegisters\nMemories\nFinite state machines\nCoarse arithmetics\nArbitrary logic functions\nSpecify rules\nFormal verification cells\nDebugging cells\nWire cells\nGate-level cells\nCombinatorial cells (simple)\nCombinatorial cells (combined)\nFlip-flop cells\nLatch cells\nOther gate-level cells\nCell properties\nCommand line reference\nYosys environment variables\nReading input files\nWriting output files\nYosys kernel commands\nFormal verification\nPasses\nWorking with hierarchy\nConverting process bl"
+        }
+      ]
+    },
+    {
+      "question": "Logic Synthesis 的用途是什麼？",
+      "results": [
+        {
+          "id": "W03",
+          "topic": "Logic Synthesis",
+          "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/using_yosys/synthesis/index.html",
+          "score": 0.2523,
+          "text": "# Logic Synthesis\n\n來源：https://yosyshq.readthedocs.io/projects/yosys/en/stable/using_yosys/synthesis/index.html\n\nSynthesis in detail\n¶\nSynthesis can generally be broken down into coarse-grain synthesis, and\nfine-grain synthesis.  We saw this in\nSynthesis starter\nwhere a design was loaded and elaborated and then went through a series of\ncoarse-grain optimizations before being mapped to hard blocks and fine-grain\ncells.  Most commands in Yosys will target either coarse-grain representation or\nfine-grain representation, with only a select few compatible with both states.\nCommands such as\nproc\n,\nfsm\n, and\nmemory\nrely on the additional information\nin the coarse-grain representation, along with a n"
+        },
+        {
+          "id": "W02",
+          "topic": "RTL Design",
+          "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/",
+          "score": 0.1607,
+          "text": "# RTL Design\n\n來源：https://yosyshq.readthedocs.io/projects/yosys/en/stable/\n\nYosys Open SYnthesis Suite\n¶\nYosys is an open source framework for RTL synthesis.  To learn more about Yosys,\nsee\nWhat is Yosys\n.  For a quick guide on how to get started using Yosys,\ncheck out\nGetting started with Yosys\n.  For the complete list of commands\navailable, go to\nCommand reference\n.\nYosys (index)\nWhat is Yosys\nWhat you can do with Yosys\nTypical applications for Yosys\nThings you can’t do\nThe Yosys family\nThe original thesis abstract\nBenefits of open source HDL synthesis\nHistory of Yosys\nGetting started with Yosys\nInstallation\nCAD suite(s)\nBuilding from source\nSource tree and build system\nSynthesis starter\nDe"
+        },
+        {
+          "id": "W02",
+          "topic": "RTL Design",
+          "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/",
+          "score": 0.1593,
+          "text": "sys\nInstallation\nCAD suite(s)\nBuilding from source\nSource tree and build system\nSynthesis starter\nDemo design\nLoading the design\nElaboration\nFlattening\nThe coarse-grain representation\nHardware mapping\nFinal steps\nScripting in Yosys\nScript parsing\nThe synthesis starter script\nUsing Yosys (advanced)\nSynthesis in detail\nSynth commands\nConverting process blocks\nFSM handling\nMemory handling\nOptimization passes\nTechnology mapping\nThe extract pass\nThe ABC toolbox\nMapping to cell libraries\nMore scripting\nLoading a design\nSelections\nInteractive design investigation\nSymbolic model checking\nDataflow tracking\nMinimizing failing (or bugged) designs\nBefore you start\nMinimizing RTLIL designs with bugpoint\n"
+        }
+      ]
+    },
+    {
+      "question": "Placement 和 Routing 有什麼不同？",
+      "results": [
+        {
+          "id": "W01",
+          "topic": "EDA Introduction",
+          "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+          "score": 0.2323,
+          "text": "ntation\nusing OpenROAD;\nFloorplanning\nFloorplan initialization - define the chip area, utilization\nIO pin placement (for designs without pads)\nTap cell and well tie insertion\nPDN- power distribution network creation\nGlobal\nPlacement\nMacro placement (RAMs, embedded macros)\nStandard cell placement\nAutomatic placement optimization and repair for max slew,\nmax capacitance, and max fanout violations and long wires\nDetailed\nPlacement\nLegalize placement - align to grid, adhere to design rules\nIncremental timing analysis for early estimates\nClock\nTree\nSynthesis\nInsert buffers and resize for high fanout nets\nOptimize\nsetup/hold\ntiming\nGlobal\nRouting\nAntenna repair\nCreate routing guides\nDetailed\nRouti"
+        },
+        {
+          "id": "W04",
+          "topic": "Placement",
+          "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+          "score": 0.2011,
+          "text": "o exempts same-net pin geometry,\nwith or without\n-pdn_aware\n.\nRun\nglobal_connect\nafter buffer insertion or resizing and before\ndetailed_placement\n-pdn_aware\nwhen global connection rules define the\nsupply bindings.\nSet Placement Padding\n#\nThe\nset_placement_padding\ncommand sets left and right padding in multiples\nof the row site width. Use the\nset_placement_padding\ncommand before\nlegalizing placement to leave room for routing. Use the\n-global\nflag\nfor padding that applies to all instances. Use\n-instances\nfor instance-specific padding.  The instances\ninsts\ncan be a list of instance\nnames, or an instance object returned by the SDC\nget_cells\ncommand. To\nspecify padding for all instances of a comm"
+        },
+        {
+          "id": "W01",
+          "topic": "EDA Introduction",
+          "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+          "score": 0.1981,
+          "text": "t nets\nOptimize\nsetup/hold\ntiming\nGlobal\nRouting\nAntenna repair\nCreate routing guides\nDetailed\nRouting\nLegalize routes, DRC-correct routing to meet timing, power\nconstraints\nChip\nFinishing\nParasitic extraction using OpenRCX\nFinal timing verification\nFinal physical verification\nDummy metal fill for manufacturability\nUse KLayout or Magic using generated GDS for DRC signoff\nGUI\n#\nThe OpenROAD GUI is a powerful visualization, analysis, and debugging\ntool with a customizable Tcl interface. The below figures show GUI views for\nvarious flow stages including floorplanning, placement congestion,\nCTS and post-routed design.\nFloorplan\n#\nAutomatic Hierarchical Macro Placement\n#\nPlacement Congestion Visu"
+        }
+      ]
+    },
+    {
+      "question": "IC 設計如何進行驗證？",
+      "results": [
+        {
+          "id": "W01",
+          "topic": "EDA Introduction",
+          "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+          "score": 0.0635,
+          "text": "t nets\nOptimize\nsetup/hold\ntiming\nGlobal\nRouting\nAntenna repair\nCreate routing guides\nDetailed\nRouting\nLegalize routes, DRC-correct routing to meet timing, power\nconstraints\nChip\nFinishing\nParasitic extraction using OpenRCX\nFinal timing verification\nFinal physical verification\nDummy metal fill for manufacturability\nUse KLayout or Magic using generated GDS for DRC signoff\nGUI\n#\nThe OpenROAD GUI is a powerful visualization, analysis, and debugging\ntool with a customizable Tcl interface. The below figures show GUI views for\nvarious flow stages including floorplanning, placement congestion,\nCTS and post-routed design.\nFloorplan\n#\nAutomatic Hierarchical Macro Placement\n#\nPlacement Congestion Visu"
+        },
+        {
+          "id": "W03",
+          "topic": "Logic Synthesis",
+          "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/using_yosys/synthesis/index.html",
+          "score": 0.0586,
+          "text": "ting up a flow for ABC9\nspecify\nsyntax\nMapping to cell libraries\nA simple counter\nLoading the design\nCoarse-grain representation\nLogic gate mapping\nMapping to hardware"
+        },
+        {
+          "id": "W01",
+          "topic": "EDA Introduction",
+          "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+          "score": 0.0559,
+          "text": "d post-routed design.\nFloorplan\n#\nAutomatic Hierarchical Macro Placement\n#\nPlacement Congestion Visualization\n#\nCTS\n#\nRouting\n#\nPDK Support\n#\nThe OpenROAD application is PDK independent. However, it has been tested\nand validated with specific PDKs in the context of various flow\ncontrollers.\nOpenLane supports SkyWater 130nm and GlobalFoundries 180nm.\nOpenROAD-flow-scripts supports several public and private PDKs\nincluding:\nOpen-Source PDKs\n#\nGF180\n- 180nm\nSKY130\n- 130nm\nNangate45\n- 45nm\nASAP7\n- Predictive FinFET 7nm\nProprietary PDKs\n#\nThese PDKS are supported in OpenROAD-flow-scripts only. They are used to\ntest and calibrate OpenROAD against commercial platforms and ensure good\nQoR. The PDKs "
+        }
+      ]
+    }
+  ],
+  "review_status": "pending_manual_review"
+}
