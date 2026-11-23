@@ -1,0 +1,44 @@
+[
+  {
+    "id": "W01",
+    "filename": "01_EDA_Introduction.md",
+    "topic": "EDA Introduction",
+    "url": "https://openroad.readthedocs.io/en/latest/main/README2.html",
+    "status": "downloaded"
+  },
+  {
+    "id": "W02",
+    "filename": "02_RTL_Design.md",
+    "topic": "RTL Design",
+    "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/",
+    "status": "downloaded"
+  },
+  {
+    "id": "W03",
+    "filename": "03_Logic_Synthesis.md",
+    "topic": "Logic Synthesis",
+    "url": "https://yosyshq.readthedocs.io/projects/yosys/en/stable/using_yosys/synthesis/index.html",
+    "status": "downloaded"
+  },
+  {
+    "id": "W04",
+    "filename": "04_Placement.md",
+    "topic": "Placement",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html",
+    "status": "downloaded"
+  },
+  {
+    "id": "W05",
+    "filename": "05_Routing.md",
+    "topic": "Routing",
+    "url": "https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html",
+    "status": "downloaded"
+  },
+  {
+    "id": "W06",
+    "filename": "06_Verification.md",
+    "topic": "IC Design Verification",
+    "url": "https://openlane2.readthedocs.io/en/stable/",
+    "status": "downloaded"
+  }
+]
