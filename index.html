@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EDA Wiki AI 教學簡報</title>
+<style>
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    background: #08111f;
+    color: #f8fafc;
+    font-family: Arial, "Microsoft JhengHei", sans-serif;
+}
+.slide {
+    display: none;
+    min-height: calc(100vh - 90px);
+    padding: 40px 24px;
+}
+.slide.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slide-inner {
+    width: 100%;
+    max-width: 1050px;
+}
+.eyebrow {
+    color: #38bdf8;
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: bold;
+}
+h1 {
+    font-size: clamp(30px, 5vw, 56px);
+    margin: 20px 0 30px;
+}
+.content {
+    white-space: pre-wrap;
+    font-size: clamp(17px, 2vw, 23px);
+    line-height: 1.85;
+    color: #e2e8f0;
+    overflow-wrap: anywhere;
+}
+.sources {
+    margin-top: 35px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+a { color: #7dd3fc; }
+.navigation {
+    position: sticky;
+    bottom: 0;
+    background: #111e32;
+    padding: 18px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    border: none;
+    border-radius: 9px;
+    padding: 12px 22px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+</style>
+</head>
+<body>
+
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="eyebrow">EDA WIKI AI · LESSON</div>
+        <h1>IC 設計中的 EDA 是什麼？</h1>
+        <div class="content">從硬體描述語言、邏輯合成，到晶片布局與繞線。
+使用 LLM Wiki，循序理解數位 IC 設計流程。</div>
+        <div class="sources"></div>
+      </div>
+    </section>
+    
+
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="eyebrow">EDA WIKI AI · LESSON</div>
+        <h1>EDA 是什麼？</h1>
+        <div class="content"><strong>簡報：EDA 是什麼？</strong>  
+（適合 IC 設計初學者）  
+
+---
+
+### 1. 基本概念  
+- <strong>EDA（Electronic Design Automation）</strong> 是用電腦軟體自動化完成 <strong>RTL → GDSII</strong> 整個數位 IC 設計流程的技術。  
+- 以 <strong>OpenROAD</strong> 為例，它提供了一套 <strong>「Autonomous, No‑Human‑In‑Loop (NHIL)」</strong> 的設計流，能在 <strong>24 小時內完成從 RTL 到 GDSII</strong> 的完整實作，讓設計者可以快速探索架構與版圖空間[W01]。  
+
+---
+
+### 2. 三個重要知識點  
+
+| # | 知識點 | 說明 |
+|---|--------|------|
+| 1 | <strong>自動化設計流</strong> | OpenROAD 透過 API（Tcl、Python）控制每個階段，實現從 <strong>Floorplanning、Placement、Routing</strong> 到最終 GDSII 的全自動化流程[W01]。 |
+| 2 | <strong>降低成本與風險</strong> | 透過開源、低成本的工具與快速的 24 h 交付，OpenROAD 減少硬體設計的成本、排程風險與不確定性，讓更多學術與新創團隊能參與 IC 設計[W01]。 |
+| 3 | <strong>教育與人才培育</strong> | OpenROAD 與全球大學、Google‑SkyWater、GlobalFoundries 合作，提供教材、課程與實作平台，支援超過 <strong>600 個 silicon‑ready tapeout</strong>，促進 IC 設計教育與工作力發展[W01]。 |
+
+---
+
+### 3. 簡單例子  
+
+<strong>使用 OpenROAD‑flow‑scripts (ORFS) 完成一個簡單的數位電路</strong>  
+
+1. <strong>撰寫 RTL</strong>（例如 Verilog 的 4‑bit 加法器）。  
+2. 以 ORFS 執行 <strong>`run_openroad.tcl`</strong>，自動進入  
+   - <strong>Floorplanning</strong>：設定晶片區域與利用率。  
+   - <strong>Placement</strong>、<strong>Routing</strong>：自動完成元件放置與連線。  
+3. 產出 <strong>GDSII</strong> 檔案，24 小時內即可取得可交付的版圖[W01]。  
+
+此流程不需要手動干預，適合作為新手的入門練習，也可在課堂上即時展示設計結果。
+
+---
+
+### 4. 小結  
+
+- <strong>EDA</strong> 讓複雜的 IC 設計變得可程式化、可自動化。  
+- <strong>OpenROAD</strong> 作為開源的 EDA 平台，示範了從概念到矽片的完整自動化路徑，降低門檻、加速學習。  
+- 透過實作 <strong>RTL → GDSII</strong> 的完整流程，初學者可以快速感受到 EDA 的威力與實用性。
+
+---  
+
+<strong>來源</strong>  
+[W01] OpenROAD – Introduction to EDA (OpenROAD documentation)</div>
+        <div class="sources">Wiki 來源：<a href="https://openroad.readthedocs.io/en/latest/main/README2.html" target="_blank" rel="noopener noreferrer">W01</a></div>
+      </div>
+    </section>
+    
+
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="eyebrow">EDA WIKI AI · LESSON</div>
+        <h1>RTL 與 Verilog</h1>
+        <div class="content"><strong>RTL 與 Verilog – 初學者入門簡報</strong>  
+
+---
+
+### 1. 基本概念  
+- <strong>RTL (Register Transfer Level)</strong>  
+  - 以「暫存器」之間的資料傳輸與運算為描述單位的抽象階層，屬於數位電路合成的中間表達方式。[W02]  
+  - 在 RTL 層級會看到 <strong>Registers、Multiplexers、Finite state machines</strong> 等基本元件的互連與行為。[W02]  
+
+- <strong>Verilog</strong>  
+  - 一種硬體描述語言（HDL），最常用來編寫 RTL 之描述，支援 <strong>Verilog designs</strong> 的語法與結構。[W02]  
+  - 透過 Verilog 可以定義 <strong>module、wire、reg</strong>，以及使用 <strong>always / assign</strong> 等敘述來描述暫存器傳輸與組合邏輯。[W02]  
+
+---
+
+### 2. 三個重要知識點  
+
+| # | 重點 | 說明 |
+|---|------|------|
+| 1 | <strong>RTL 表示的層次與抽象</strong> | 只關注暫存器間的資料流與同步/非同步控制，不涉及門級細節，方便設計與驗證。&lt;br&gt;（包括 <strong>Registers、Multiplexers、Combinatorial cells</strong> 等）[W02] |
+| 2 | <strong>Verilog 與 RTL 的對應</strong> | Verilog 程式碼在合成前會被解析為 RTLIL（RTL Intermediate Language），作為 Yosys 等合成工具的中間表示。[W02] |
+| 3 | <strong>合成流程概念</strong> | 1) 讀入 Verilog 檔 → 2) 產生 RTLIL (RTL) → 3) 進行 <strong>Optimization、FSM handling、Memory handling</strong> 等優化 → 4) 轉換成 <strong>gate‑level</strong> 級別的網表。[W02] |
+
+---
+
+### 3. 簡單範例 – 1 位元 D 型正緣觸發觸發器  
+
+```verilog
+// D Flip‑Flop (positive‑edge triggered)
+module dff (
+    input  wire clk,   // 時鐘
+    input  wire d,     // 資料輸入
+    output reg  q      // 資料輸出 (暫存器)
+);
+    // 在時鐘上升緣時，將 d 複製到 q
+    always @(posedge clk) begin
+        q &lt;= d;
+    end
+endmodule
+```
+
+- <strong>說明</strong>  
+  - `module` 定義硬體單元；`input`、`output` 為介面。  
+  - `always @(posedge clk)` 表示「在時鐘正緣」觸發，此即 <strong>Register Transfer</strong> 的核心行為。  
+  - `q &lt;= d;` 為非阻塞指派，描述資料從暫存器 <strong>D</strong> 轉移至 <strong>Q</strong>。  
+
+此程式碼在合成時會被 Yosys 轉換為 RTLIL，進一步映射為實際的 <strong>flip‑flop cell</strong>。[W02]
+
+---
+
+### 4. 小結  
+- RTL 為描述暫存器間資料傳輸的抽象層，適合作為合成的起點。  
+- Verilog 提供可讀寫的語法，使設計者能以文字方式描述 RTL。  
+- 從 Verilog → RTLIL → 優化 → Gate‑level 的合成流程，是現代數位 IC 設計的核心步驟。  
+
+&gt; 以上內容均根據 Wiki「RTL Design」條目整理。[W02]</div>
+        <div class="sources">Wiki 來源：<a href="https://yosyshq.readthedocs.io/projects/yosys/en/stable/" target="_blank" rel="noopener noreferrer">W02</a></div>
+      </div>
+    </section>
+    
+
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="eyebrow">EDA WIKI AI · LESSON</div>
+        <h1>邏輯合成 Logic Synthesis</h1>
+        <div class="content"><strong>簡報主題：邏輯合成 (Logic Synthesis)</strong>  
+
+---
+
+### 1. 基本概念  
+- <strong>邏輯合成</strong>是把設計語言（如 Verilog/VHDL）描述的功能，逐步轉換成可在晶片上實作的邏輯閘與儲存元件的過程。  
+- 合成大致分為兩個階段：  
+  1. <strong>粗粒度合成 (coarse‑grain synthesis)</strong> – 先在較高層次的抽象（如 process、FSM、memory）上進行優化與轉換。  
+  2. <strong>細粒度合成 (fine‑grain synthesis)</strong> – 再將粗粒度的元件映射成實際的基本閘、LUT、加法器等細部單元。  
+
+&gt; 這兩個階段的切換與大多數 Yosys 指令的目標狀態相對應【[W03]】  
+
+---
+
+### 2. 三個重要知識點  
+
+| 知識點 | 說明 | 相關指令/功能 |
+|--------|------|---------------|
+| <strong>粗粒度 vs 細粒度</strong> | 粗粒度保留高層次資訊（process、FSM、memory），細粒度則以單位閘或 LUT 為單元。 | `proc`, `fsm`, `memory`（粗粒度）&lt;br&gt;`techmap`, `abc/abc9`, `simplemap`（細粒度）【[W03]】 |
+| <strong>映射到硬體元件</strong> | 設計先被映射至硬塊 (hard blocks) 再映射到細粒度的邏輯單元，完成「logic gate mapping」的最後步驟。 | `techmap` 轉換粗粒度元件 → 細粒度元件；`abc`/`abc9` 進行 LUT/閘的最佳化【[W03]】 |
+| <strong>最佳化 Pass</strong> | 合成過程中會執行多種最佳化，以減少面積、功耗或提升速度。常見的宏指令 `opt` 包含：&lt;br&gt;• `opt_expr` – 常數折疊與簡單表達式重寫&lt;br&gt;• `opt_merge` – 合併相同的單元&lt;br&gt;• `opt_muxtree` – 移除永不活躍的分支&lt;br&gt;• `opt_reduce` – 簡化大型 MUX/AND/OR 結構【[W03]】 |
+
+---
+
+### 3. 簡單例子：4 位元計數器  
+
+1. <strong>載入設計</strong>  
+   ```verilog
+   module counter (input clk, reset, output [3:0] cnt);
+       always @(posedge clk or posedge reset)
+           if (reset) cnt &lt;= 4&#x27;d0;
+           else       cnt &lt;= cnt + 1&#x27;b1;
+   endmodule
+   ```
+2. <strong>粗粒度合成</strong> – 解析 `always` 區塊、產生「process」與暫存元件。  
+3. <strong>最佳化</strong> – 透過 `opt` 系列 Pass，折疊常數、合併相同的加法器等。  
+4. <strong>映射</strong> – `techmap` 把高層的加法器轉成 LUT 或基本閘，最後產生成 `FF` + `AND/OR` 組合的門級網表。  
+
+&gt; 此流程在 Yosys 中會依序經歷「Coarse‑grain representation → Logic gate mapping → Mapping to hardware」的步驟【[W03]】  
+
+---
+
+### 4. 小結  
+
+- <strong>邏輯合成</strong>是從行為描述到門級實作的必經橋樑。  
+- 掌握 <strong>粗/細粒度</strong> 的概念、<strong>映射流程</strong> 以及 <strong>最佳化 Pass</strong>，是 IC 設計新手的核心基礎。  
+- 透過簡單的 <strong>計數器例子</strong>，可以觀察到每一步驟在實際工具（如 Yosys）中的具體運作方式。  
+
+---
+
+<strong>參考來源</strong>  
+- Yosys 官方文件 – Logic Synthesis 相關說明【[W03]】</div>
+        <div class="sources">Wiki 來源：<a href="https://yosyshq.readthedocs.io/projects/yosys/en/stable/using_yosys/synthesis/index.html" target="_blank" rel="noopener noreferrer">W03</a></div>
+      </div>
+    </section>
+    
+
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="eyebrow">EDA WIKI AI · LESSON</div>
+        <h1>元件布局 Placement</h1>
+        <div class="content"><strong>元件布局 (Placement) – 基本概念與重要知識</strong>  
+（適合 IC 設計初學者）  
+
+---
+
+### 1. 基本概念  
+- <strong>元件布局</strong>是將所有標準單元、宏元件、固定單元（如 tapcell、endcap）安排到晶片的實體版圖上，使它們佔據合法的「site」位置。  
+- 合法布局必須滿足 <strong>設計規則 (DRC)</strong>、不重疊、符合行(row)寬度等限制，才能進入後續的配線階段。  
+- 常見流程：  
+  1. <strong>全局布局 (global placement)</strong> → 初步決定每個元件的大致位置。  
+  2. <strong>檢查合法性</strong> (`check_placement`)。  
+  3. <strong>細部布局 (detailed placement)</strong> → 把元件移到最終合法位置，並可進一步優化如鏡像或填充空白。  
+
+&gt; 來源: `check_placement` 會檢查布局合法性，`detailed_placement` 執行細部布局 [W04]。  
+
+---
+
+### 2. 三個重要知識點  
+
+| # | 知識點 | 內容說明 | 相關指令 |
+|---|--------|----------|----------|
+| 1 | <strong>布局合法性檢查</strong> | 必須確認固定實例、宏元件與可移動單元皆符合版圖規則。可分別檢查「fixed」與「placeable」兩類元件。 | `check_placement [-fixed] [-placeable]` [W04] |
+| 2 | <strong>填充 (Filler) 與填充前置</strong> | 為避免行間空洞，使用 filler cell 填滿未被佔用的 site；可自訂前綴名稱 (預設 `FILLER_`) 並在合法化前設定填充寬度。 | `filler_placement -prefix &lt;new prefix&gt;`、`set_placement_padding` [W04] |
+| 3 | <strong>細部布局與優化</strong> | 在全局布局後，`detailed_placement` 把元件移到合法 site；`optimize_mirroring` 會嘗試在 Y 軸鏡像元件，以降低半周長線長 (HPWL)。 | `detailed_placement`、`optimize_mirroring` [W04] |
+
+---
+
+### 3. 簡單例子  
+
+假設已完成全局布局，接下來的指令流程如下（均以 OpenROAD/類似工具為例）：
+
+```text
+# 1. 檢查固定與宏元件是否合法
+check_placement -fixed -verbose
+
+# 2. 設定填充前置，給每個實例左/右各 2 個 site 的緩衝空間
+set_placement_padding -global 2
+
+# 3. 執行細部布局，使所有可移動單元落在合法位置
+detailed_placement -max_displacement 10
+
+# 4. 嘗試鏡像優化，減少 HPWL
+optimize_mirroring
+```
+
+執行完上述指令後，工具會回報布局是否合法（`check_placement` 回傳 0 代表合法），並在細部布局階段自動插入 filler cell 以及調整元件位置以符合製程需求。  
+
+&gt; 以上指令與說明均取自官方 Placement 手冊的指令說明 [W04]。  
+
+---
+
+<strong>小結</strong>  
+- 布局是 IC 設計的關鍵前置，必須先確保合法性，再透過填充與細部優化提升後續配線的可行性與效能。  
+- 熟悉 `check_placement`、`filler_placement`、`detailed_placement` 等基本指令，是進入實務設計的第一步。</div>
+        <div class="sources">Wiki 來源：<a href="https://openroad.readthedocs.io/en/latest/main/openroad/dpl/README.html" target="_blank" rel="noopener noreferrer">W04</a></div>
+      </div>
+    </section>
+    
+
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="eyebrow">EDA WIKI AI · LESSON</div>
+        <h1>電路繞線 Routing</h1>
+        <div class="content"><strong>電路繞線 (Routing) — 基本概念與關鍵知識</strong>  
+*適用於 IC 設計初學者*  
+
+---
+
+### 1. 基本概念  
+- <strong>什麼是 Routing</strong>  
+  - 在 IC 設計中，Routing（繞線）是把電路圖上各 <strong>net</strong>（連線）以金屬線的形式連接起來，使所有元件能正確通訊。  
+  - 繞線分為兩個階段：  
+    1. <strong>Global Routing</strong>：先在粗粒度的格子 (gcell) 上決定每條 net 大致的走向與層級。  
+    2. <strong>Detailed Routing</strong>：在 Global Routing 的基礎上，進一步在每一層的實際佈線格點上完成精確布線。  
+  - 這些階段皆可透過指令列工具讀寫 <strong>routing guides</strong>、<strong>routing segments</strong>，並產生佈線長度報告等資訊【[W05]】。
+
+---
+
+### 2. 三個重要知識點  
+
+| # | 知識點 | 內容說明 |
+|---|--------|----------|
+| 1️⃣ | <strong>Net 名稱與選取</strong> | `-net` 參數用於指定要報告或操作的 net（如 `clk`、`net60`），或使用 `*` 代表全部 net【[W05]】。 |
+| 2️⃣ | <strong>全局與詳細佈線的報告</strong> | - `-global_route` 旗標報告 <strong>全局佈線</strong> 的線長。&lt;br&gt;- `-detailed_route` 旗標報告 <strong>詳細佈線</strong> 的線長。兩者可同時使用，並可加上 `-verbose` 取得層別細節【[W05]】。 |
+| 3️⃣ | <strong>佈線指令與檔案交互</strong> | - `read_guides &lt;file&gt;`：讀取全局佈線指引。&lt;br&gt;- `write_global_route_segments &lt;file&gt;`：寫出全局佈線產生的原始段資料，供後續抽取寄生參數或修正天線使用。&lt;br&gt;- `read_global_route_segments &lt;file&gt;`：讀取上述段資料以重新分析【[W05]】。 |
+
+---
+
+### 3. 簡單例子  
+
+假設我們想要查詢時鐘網路 `clk` 以及 `net60` 的佈線長度，並同時取得全局與詳細佈線的層別資訊，指令如下：
+
+```
+report_wire_length \
+  -net {clk net60} \
+  -global_route \
+  -detailed_route \
+  -verbose \
+  -file out.csv
+```
+
+- `-net {clk net60}`：指定要報告的兩條 net。  
+- `-global_route`、`-detailed_route`：同時顯示全局與詳細佈線長度。  
+- `-verbose`：列出每層的線長細節。  
+- `-file out.csv`：將結果寫入 CSV 檔方便後續分析【[W05]】。
+
+---
+
+### 4. 小結  
+
+- <strong>Routing</strong> 是把電路圖形化為金屬線的關鍵步驟，分為 <strong>全局</strong> 與 <strong>詳細</strong> 兩層次。  
+- 了解 <strong>net</strong>、<strong>全局/詳細佈線報告</strong> 以及 <strong>指令檔案交互</strong>，能讓設計者更有效率地檢視與調整佈線品質。  
+- 透過簡單的指令範例，可快速取得關鍵佈線資訊，為後續的時序、功耗與製程檢查奠定基礎。</div>
+        <div class="sources">Wiki 來源：<a href="https://openroad.readthedocs.io/en/latest/main/openroad/grt/README.html" target="_blank" rel="noopener noreferrer">W05</a></div>
+      </div>
+    </section>
+    
+
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="eyebrow">EDA WIKI AI · LESSON</div>
+        <h1>IC 設計驗證 Verification</h1>
+        <div class="content"><strong>簡報標題：IC 設計驗證 (Verification) 入門概念</strong>  
+
+---
+
+### 1. 什麼是 IC 設計驗證？
+
+- <strong>驗證 (Verification)</strong>：在晶片設計流程中，使用模擬、形式驗證、版圖檢查等手段，確認「設計功能」與「規格需求」相符，避免在製程後出現錯誤。  
+- 在數位 ASIC 設計裡，驗證通常是 <strong>完整 flow</strong> 的最後階段，與合成、布局、繞線等步驟緊密相連。  
+- <strong>OpenLane 2</strong> 提供一套以開源 EDA 工具構成的參考 flow，將驗證步驟自動化，讓使用者可在同一環境中完成從 RTL 到驗證的全流程。  
+  - 參考來源：[W06]
+
+---
+
+### 2. 三個重要知識點
+
+| # | 知識點 | 為什麼重要？ | 相關說明（引用） |
+|---|--------|--------------|-------------------|
+| 1 | <strong>完整的參考驗證 Flow</strong> | 提供從 RTL 合成到版圖驗證（DRC/LVS）的端對端自動化，降低手動錯誤。 | OpenLane 2 包含「Classic BETA」參考 flow，全部使用開源工具，讓驗證行為可透過單一配置檔控制。 [W06] |
+| 2 | <strong>彈性與可擴充性</strong> | 設計者可依需求自訂驗證腳本或加入額外檢查，適應不同 ASIC 專案。 | 可透過 Python 腳本或修改配置檔自由擴展或調整 flow。 [W06] |
+| 3 | <strong>開源與社群支援</strong> | 免費取得、可自行修改，且有活躍社群提供範例、問題解答，降低學習門檻。 | OpenLane 2 為開源專案，擁有豐富的社群資源協助使用者上手與除錯。 [W06] |
+
+---
+
+### 3. 簡單例子：用 OpenLane 2 驗證一個 2‑Input NAND 閘
+
+1. <strong>撰寫 RTL</strong>（Verilog）  
+   ```verilog
+   module nand2 (input a, input b, output y);
+       assign y = ~(a &amp; b);
+   endmodule
+   ```
+2. <strong>放入 OpenLane 2 專案資料夾</strong>，執行預設的 `./flow.sh`（呼叫 Classic BETA flow）。  
+3. Flow 依序執行：  
+   - <strong>合成 (Synthesis)</strong> → 產生門級網表  
+   - <strong>布局 &amp; 繞線 (Placement &amp; Routing)</strong> → 生成版圖 GDS  
+   - <strong>驗證</strong>：自動執行 <strong>DRC</strong>（設計規則檢查）與 <strong>LVS</strong>（版圖與電路等價性檢查），確保版圖與原始功能一致。  
+4. <strong>結果</strong>：若 DRC/LVS 通過，即表示該 NAND 閘的功能與版圖皆符合規格，驗證成功。  
+
+&gt; 這個例子展示了 <strong>OpenLane 2</strong> 如何把驗證步驟嵌入完整 flow，讓初學者只需要一次指令即可完成功能與版圖的雙重驗證。 [W06]
+
+---
+
+### 4. 小結
+
+- <strong>IC 設計驗證</strong> 是確保晶片功能正確、製造成功的關鍵階段。  
+- 使用 <strong>OpenLane 2</strong>，初學者可以透過開源、彈性、高社群支援的環境，快速體驗從 RTL 到驗證的完整流程。  
+
+---  
+
+<strong>參考來源</strong>  
+- OpenLane 2 Documentation – IC Design Verification. [W06]</div>
+        <div class="sources">Wiki 來源：<a href="https://openlane2.readthedocs.io/en/stable/" target="_blank" rel="noopener noreferrer">W06</a></div>
+      </div>
+    </section>
+    
+
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="eyebrow">EDA WIKI AI · LESSON</div>
+        <h1>學習總結</h1>
+        <div class="content">1. EDA 協助工程師設計與驗證 IC。
+2. RTL 使用硬體描述語言表達電路功能。
+3. 邏輯合成將設計轉換為邏輯閘網表。
+4. Placement 安排元件位置。
+5. Routing 連接元件間的線路。
+6. 驗證用於檢查設計是否符合要求。</div>
+        <div class="sources"></div>
+      </div>
+    </section>
+    
+<div class="navigation">
+    <button id="prev">上一頁</button>
+    <span id="counter"></span>
+    <button id="next">下一頁</button>
+</div>
+<script>
+const pages = [...document.querySelectorAll(".slide")];
+let current = 0;
+
+function showSlide(index) {
+    current = Math.max(0, Math.min(index, pages.length - 1));
+    pages.forEach((page, i) => {
+        page.classList.toggle("active", i === current);
+    });
+    document.getElementById("counter").textContent =
+        (current + 1) + " / " + pages.length;
+    document.getElementById("prev").disabled = current === 0;
+    document.getElementById("next").disabled =
+        current === pages.length - 1;
+}
+
+document.getElementById("prev").onclick =
+    () => showSlide(current - 1);
+document.getElementById("next").onclick =
+    () => showSlide(current + 1);
+
+document.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight") showSlide(current + 1);
+    if (e.key === "ArrowLeft") showSlide(current - 1);
+});
+
+showSlide(0);
+</script>
+</body>
+</html>
